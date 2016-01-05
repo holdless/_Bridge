@@ -74,3 +74,9 @@ add MS_NO_COREDLL definition at Configuration Properties->C/C++->Preprocessor->P
 
 	Py_Finalize();
 	return 0;	  
+
+<VC++/windows embedding python script "pure" problem>
+1) copy python27.lib and rename to "python27_d.lib"
+2) import this new "python27_d.lib" to project
+3) revise "pyconfig.h"，comment "#define Py_DEBUG"
+#remark: notice that this trick also solves above problem
