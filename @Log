@@ -1,0 +1,76 @@
+----------
+543.4.1022
+----------
+<OpenCV dependency for VC>
+Properties > Linker > Input >
+
+opencv_calib3d2411d.lib
+opencv_contrib2411d.lib
+opencv_core2411d.lib
+opencv_features2d2411d.lib
+opencv_flann2411d.lib
+opencv_gpu2411d.lib
+opencv_highgui2411d.lib
+opencv_imgproc2411d.lib
+opencv_legacy2411d.lib
+opencv_ml2411d.lib
+opencv_nonfree2411d.lib
+opencv_objdetect2411d.lib
+opencv_ocl2411d.lib
+opencv_photo2411d.lib
+opencv_stitching2411d.lib
+opencv_superres2411d.lib
+opencv_ts2411d.lib
+opencv_video2411d.lib
+opencv_videostab2411d.lib
+
+// for released ver.
+opencv_calib3d2411.lib
+opencv_contrib2411.lib
+opencv_core2411.lib
+opencv_features2d2411.lib
+opencv_flann2411.lib
+opencv_gpu2411.lib
+opencv_highgui2411.lib
+opencv_imgproc2411.lib
+opencv_legacy2411.lib
+opencv_ml2411.lib
+opencv_nonfree2411.lib
+opencv_objdetect2411.lib
+opencv_ocl2411.lib
+opencv_photo2411.lib
+opencv_stitching2411.lib
+opencv_superres2411.lib
+opencv_ts2411.lib
+opencv_video2411.lib
+opencv_videostab2411.lib
+
+<OpenCV haar classifier>
+D:/opencv/build/share/OpenCV/haarcascades
+
+----------
+602.1.0104
+----------
+<C++ embedding python script problem>
+
+add MS_NO_COREDLL definition at Configuration Properties->C/C++->Preprocessor->Preprocessor Definitions; or add #define MS_NO_COREDLL line before including python.h.
+
+#define MS_NO_COREDLL
+#include <Python.h>
+
+----------
+602.2.0105
+----------
+<VC++/windows embedding python script problem>
+1) don't forget to include python27.lib
+2) 	
+  Py_SetProgramName(argv[0]);  /* optional but recommended */
+	Py_Initialize();
+//	FILE* file = fopen("_pos_tagging.py", "r");
+//	PyRun_SimpleFile(file, "_pos_tagging.py");
+// instead of above 2 lines, replace by following 2 lines
+	PyObject* pyFileObj = PyFile_FromString("D:/Python27/_py/_pos_tagging.py", "r");
+	PyRun_SimpleFile(PyFile_AsFile(pyFileObj), "D:/Python27/_py/_pos_tagging.py", 1);
+
+	Py_Finalize();
+	return 0;	  
