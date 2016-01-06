@@ -1,7 +1,7 @@
 ----------
 543.4.1022
 ----------
-<OpenCV dependency for VC>
+<OpenCV dependency for VC:>
 Properties > Linker > Input >
 
 opencv_calib3d2411d.lib
@@ -51,7 +51,7 @@ D:/opencv/build/share/OpenCV/haarcascades
 ----------
 602.1.0104
 ----------
-<C++ embedding python script problem>
+<C++ embedding python script problem:>
 
 add MS_NO_COREDLL definition at Configuration Properties->C/C++->Preprocessor->Preprocessor Definitions; or add #define MS_NO_COREDLL line before including python.h.
 
@@ -61,7 +61,7 @@ add MS_NO_COREDLL definition at Configuration Properties->C/C++->Preprocessor->P
 ----------
 602.2.0105
 ----------
-<VC++/windows embedding python script problem>
+<VC++/windows embedding python script problem:>
 1) don't forget to include python27.lib
 2) 	
   Py_SetProgramName(argv[0]);  /* optional but recommended */
@@ -80,3 +80,15 @@ add MS_NO_COREDLL definition at Configuration Properties->C/C++->Preprocessor->P
 2) import this new "python27_d.lib" to project
 3) revise "pyconfig.h"，comment "#define Py_DEBUG"
 #remark: notice that this trick also solves above problem
+
+----------
+602.3.0106
+----------
+<VC++/windows embedding python script "pure/separate" problem:>
+1) just like in linux system, "PySys_SetArgv(argc, argv)" must be added
+    Py_SetProgramName(argv[0]);
+    Py_Initialize();
+    PySys_SetArgv(argc, argv); <-----------------------
+//    pName = PyString_FromString(argv[1]);
+    pName = PyString_FromString("_postag");
+    
