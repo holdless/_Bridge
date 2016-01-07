@@ -7,9 +7,9 @@ https://docs.python.org/2/c-api/int.html
   Return value: New reference.
   Create a new integer object with a value of ival.
 
-The current implementation keeps an array of integer objects for all integers between -5 and 256, 
-when you create an int in that range you actually just get back a reference to the existing object. 
-So it should be possible to change the value of 1. I suspect the behaviour of Python in this case is undefined. :-) "
+  The current implementation keeps an array of integer objects for all integers between -5 and 256, 
+  when you create an int in that range you actually just get back a reference to the existing object. 
+  So it should be possible to change the value of 1. I suspect the behaviour of Python in this case is undefined. :-) "
 
 #remark[1]: according to above weird property, when I use "PyObject_CallObject" to call a python script function, if the
 function return the int value in a range from -5 to 256, then I got a unexpectable refcnt. further more, if the return
@@ -22,6 +22,17 @@ if the return value or name of return value is:
 	2) the module/function/... in python
 	3) unknown object?!
 and I don't know will it cause memory leak if the refcnt after "Py_Finalize()" function...	
+
+<about the annoying reference count mechanism in python:>
+pseudo code: (-> means "point to", {.} means obj ifself)
+    PyObject *pName, *pModule, *pDict, *pFunc;
+    PyObject *pArgs, *pValue;
+   
+    pName = PyString_FromString("pos_tag"); // refcnt +1 ( pName->{name_obj} )
+    pModule = PyImport_Import(pName); // refcnt +2 ( pModule->{module_obj}, and pModule->pName->{name_obj} )
+    Py_DECREF(pName); // refcnt -1
+    pFunc = PyObject_GetAttrString(pModule, "loadPickle"); // refcnt +2 ( pFunc->{func_obj}, and pFunc->pModule->{module_obj} )
+    pValue = PyObject_CallObject(pFunc, NULL); // refcnt +1 ( only pValue->{Value_obj}, input vars are not involved since the output just borrow the input reference )
 
 
 ----------
