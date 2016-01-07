@@ -109,3 +109,10 @@ https://docs.python.org/2/c-api/int.html
 The current implementation keeps an array of integer objects for all integers between -5 and 256, 
 when you create an int in that range you actually just get back a reference to the existing object. 
 So it should be possible to change the value of 1. I suspect the behaviour of Python in this case is undefined. :-) "
+
+#remark: according to above weird property, when I use "PyObject_CallObject" to call a python script function, if the
+function return the int value in a range from -5 to 256, then I got a unexpectable refcnt. further more, if the return
+object type is "unknown" (here I mean the object type is not define or never heard in C), then I got a unexpectable refcnt too.
+this really bothers me so much! gosh-darn...
+
+
