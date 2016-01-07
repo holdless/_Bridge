@@ -1,4 +1,82 @@
 ----------
+602.4.0107
+----------
+<Python/C API: "PyInt_FromLong" add reference count oddly:>
+https://docs.python.org/2/c-api/int.html
+" PyObject* PyInt_FromLong(long ival)
+  Return value: New reference.
+  Create a new integer object with a value of ival.
+
+The current implementation keeps an array of integer objects for all integers between -5 and 256, 
+when you create an int in that range you actually just get back a reference to the existing object. 
+So it should be possible to change the value of 1. I suspect the behaviour of Python in this case is undefined. :-) "
+
+#remark[1]: according to above weird property, when I use "PyObject_CallObject" to call a python script function, if the
+function return the int value in a range from -5 to 256, then I got a unexpectable refcnt. further more, if the return
+object type is "unknown" (here I mean the object type is not define or never heard in C), then I got a unexpectable refcnt too.
+this really bothers me so much! gosh-darn...
+
+#remakr[2]: after long time trial & error, I got some not-so-sure conclusion about the refcnt not goes to zero 
+if the return value or name of return value is:
+	1) the string of "data type" in C/C++, like "int", "float", "string",....
+	2) the module/function/... in python
+	3) unknown object?!
+and I don't know will it cause memory leak if the refcnt after "Py_Finalize()" function...	
+
+
+----------
+602.3.0106
+----------
+<VC++/windows embedding python script "pure/separate" problem:>
+1) just like in linux system, "PySys_SetArgv(argc, argv)" must be added
+    Py_SetProgramName(argv[0]);
+    Py_Initialize();
+    PySys_SetArgv(argc, argv); <-----------------------
+//    pName = PyString_FromString(argv[1]);
+    pName = PyString_FromString("_postag");
+    
+
+PyObject* PyInt_FromLong(long ival)
+Return value: New reference.
+Create a new integer object with a value of ival.
+
+
+----------
+602.2.0105
+----------
+<VC++/windows embedding python script problem:>
+1) don't forget to include python27.lib
+2) 	
+  Py_SetProgramName(argv[0]);  /* optional but recommended */
+	Py_Initialize();
+//	FILE* file = fopen("_pos_tagging.py", "r");
+//	PyRun_SimpleFile(file, "_pos_tagging.py");
+// instead of above 2 lines, replace by following 2 lines
+	PyObject* pyFileObj = PyFile_FromString("D:/Python27/_py/_pos_tagging.py", "r");
+	PyRun_SimpleFile(PyFile_AsFile(pyFileObj), "D:/Python27/_py/_pos_tagging.py", 1);
+
+	Py_Finalize();
+	return 0;	  
+
+<VC++/windows embedding python script "pure" problem>
+1) copy python27.lib and rename to "python27_d.lib"
+2) import this new "python27_d.lib" to project
+3) revise "pyconfig.h"，comment "#define Py_DEBUG"
+#remark: notice that this trick also solves above problem
+
+
+----------
+602.1.0104
+----------
+<C++ embedding python script problem:>
+
+add MS_NO_COREDLL definition at Configuration Properties->C/C++->Preprocessor->Preprocessor Definitions; or add #define MS_NO_COREDLL line before including python.h.
+
+#define MS_NO_COREDLL
+#include <Python.h>
+
+
+----------
 543.4.1022
 ----------
 <OpenCV dependency for VC:>
@@ -47,72 +125,3 @@ opencv_videostab2411.lib
 
 <OpenCV haar classifier>
 D:/opencv/build/share/OpenCV/haarcascades
-
-----------
-602.1.0104
-----------
-<C++ embedding python script problem:>
-
-add MS_NO_COREDLL definition at Configuration Properties->C/C++->Preprocessor->Preprocessor Definitions; or add #define MS_NO_COREDLL line before including python.h.
-
-#define MS_NO_COREDLL
-#include <Python.h>
-
-----------
-602.2.0105
-----------
-<VC++/windows embedding python script problem:>
-1) don't forget to include python27.lib
-2) 	
-  Py_SetProgramName(argv[0]);  /* optional but recommended */
-	Py_Initialize();
-//	FILE* file = fopen("_pos_tagging.py", "r");
-//	PyRun_SimpleFile(file, "_pos_tagging.py");
-// instead of above 2 lines, replace by following 2 lines
-	PyObject* pyFileObj = PyFile_FromString("D:/Python27/_py/_pos_tagging.py", "r");
-	PyRun_SimpleFile(PyFile_AsFile(pyFileObj), "D:/Python27/_py/_pos_tagging.py", 1);
-
-	Py_Finalize();
-	return 0;	  
-
-<VC++/windows embedding python script "pure" problem>
-1) copy python27.lib and rename to "python27_d.lib"
-2) import this new "python27_d.lib" to project
-3) revise "pyconfig.h"，comment "#define Py_DEBUG"
-#remark: notice that this trick also solves above problem
-
-----------
-602.3.0106
-----------
-<VC++/windows embedding python script "pure/separate" problem:>
-1) just like in linux system, "PySys_SetArgv(argc, argv)" must be added
-    Py_SetProgramName(argv[0]);
-    Py_Initialize();
-    PySys_SetArgv(argc, argv); <-----------------------
-//    pName = PyString_FromString(argv[1]);
-    pName = PyString_FromString("_postag");
-    
-
-PyObject* PyInt_FromLong(long ival)
-Return value: New reference.
-Create a new integer object with a value of ival.
-
-----------
-602.4.0107
-----------
-<Python/C API: "PyInt_FromLong" add reference count oddly:>
-https://docs.python.org/2/c-api/int.html
-" PyObject* PyInt_FromLong(long ival)
-  Return value: New reference.
-  Create a new integer object with a value of ival.
-
-The current implementation keeps an array of integer objects for all integers between -5 and 256, 
-when you create an int in that range you actually just get back a reference to the existing object. 
-So it should be possible to change the value of 1. I suspect the behaviour of Python in this case is undefined. :-) "
-
-#remark: according to above weird property, when I use "PyObject_CallObject" to call a python script function, if the
-function return the int value in a range from -5 to 256, then I got a unexpectable refcnt. further more, if the return
-object type is "unknown" (here I mean the object type is not define or never heard in C), then I got a unexpectable refcnt too.
-this really bothers me so much! gosh-darn...
-
-
