@@ -92,3 +92,20 @@ add MS_NO_COREDLL definition at Configuration Properties->C/C++->Preprocessor->P
 //    pName = PyString_FromString(argv[1]);
     pName = PyString_FromString("_postag");
     
+
+PyObject* PyInt_FromLong(long ival)
+Return value: New reference.
+Create a new integer object with a value of ival.
+
+----------
+602.4.0107
+----------
+<Python/C API: "PyInt_FromLong" add reference count oddly:>
+https://docs.python.org/2/c-api/int.html
+" PyObject* PyInt_FromLong(long ival)
+  Return value: New reference.
+  Create a new integer object with a value of ival.
+
+The current implementation keeps an array of integer objects for all integers between -5 and 256, 
+when you create an int in that range you actually just get back a reference to the existing object. 
+So it should be possible to change the value of 1. I suspect the behaviour of Python in this case is undefined. :-) "
