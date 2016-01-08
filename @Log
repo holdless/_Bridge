@@ -1,4 +1,12 @@
 ----------
+602.5.0108
+----------
+<Python: get string representation of PyObject? (if the obj format in C is unknown..):>
+PyObject* objectsRepresentation = PyObject_Repr(yourObject);
+const char* s = PyString_AsString(objectsRepresentation);
+
+
+----------
 602.4.0107
 ----------
 <Python/C API: "PyInt_FromLong" add reference count oddly:>
@@ -86,8 +94,7 @@ add MS_NO_COREDLL definition at Configuration Properties->C/C++->Preprocessor->P
 #define MS_NO_COREDLL
 #include <Python.h>
 
-
-----------
+==========
 543.4.1022
 ----------
 <OpenCV dependency for VC:>
