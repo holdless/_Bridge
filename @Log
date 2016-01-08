@@ -5,6 +5,13 @@
 PyObject* objectsRepresentation = PyObject_Repr(yourObject);
 const char* s = PyString_AsString(objectsRepresentation);
 
+<refcnt not properly decrease: new ref. by "PyString_FromString" after "PyObject_CallObject":>
+this confuses me all day long....
+the actual solution is to declare "sentence" correctly. for example:
+const char* sentence = "i am jack"; <-- correct!
+const char sentence[] = "i am jack"; <-- wrong! it's not equal though i don't know why..
+pSentence = PyString_FromString(sentence)
+Py_DECREF(pSentence);
 
 ----------
 602.4.0107
