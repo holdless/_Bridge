@@ -11,10 +11,8 @@
 
 
 PyObject* callPythonFunc(const char* scriptName, 
-						 const char* funcName,
-						 PyObject* pInpTuple
-						);
-
+			 const char* funcName,
+			 PyObject* pInpTuple);
 
 int main(int argc, char* argv[])
 {
