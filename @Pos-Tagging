@@ -1,0 +1,114 @@
+----------
+603.3.0113 
+----------
+<matlab using stanford pos-tagging model fail reason:>
+must using JRE 7 (1.7)
+To run Java 7 code from Matlab, Matlab needs to use JVM 1.7. To do this, see this MathWorks page, or follow these steps:
+
+1) Ensure that you are using Java 6 or earlier – no need to do anything if your Matlab already has Java 7
+>> version -java
+ans =
+Java 1.6.0_17-b04 with Sun Microsystems Inc. Java HotSpot(TM) 64-Bit Server VM mixed mode
+2) Download and install JRE 1.7 or JDK 1.7 from the Oracle website
+3) Create a new System Environment Variable called MATLAB_JAVA with the installation folder as its value. 
+For example: “C:\Program Files\Java\jdk1.7.0_21\jre”
+Restart Matlab and verify that it picked up the new Java version:
+>> version('-java')
+ans =
+Java 1.7.0_21-b11 with Oracle Corporation Java HotSpot(TM) 64-Bit Server VM mixed mode
+
+%% testPosTagging.m:
+% It requires the following files:
+% 
+% "english-left3words-distsim.tagger" in the current path (where .m file runs) while running it. 
+% It can be found in $STANFORD_POS_TAGGER_PATH/models/
+% stanford-postagger.jar should be added to the classpath. Matlab command to do it: 
+% javaaddpath('$STANFORD_POS_TAGGER_PATH/stanford-postagger.jar')
+
+javaaddpath('...\stanford-postagger.jar');
+str = 'turn on the light';
+result = PosTaggerM(str)
+
+%% PosTaggerM.m:
+function result = PosTaggerM(str)
+	% The imports are probably a one time requirement, and add no overhead.
+	import java.io.*;
+	import edu.stanford.nlp.tagger.maxent.MaxentTagger;
+
+	%
+	% This initializtion is expensive.
+        % It is better to create the tagger once and then reuse it.
+	%
+	tagger = MaxentTagger('_nlp_postag_models/english-left3words-distsim.tagger'); % should be under current .m directory
+	result = java.util.ArrayList();
+	sentences = MaxentTagger.tokenizeText(StringReader(str));
+	for ii = 1:size(sentences)
+		tSentence = tagger.tagSentence(sentences.get(ii-1));
+		result.addAll(tSentence);
+	end
+end
+
+#Remark1: for matlab -> jre 7
+	        for python nltk -> jre 7,8
+#Remark2: for matlab we can only use stanford postag model 2014-08-27 (for jre7)
+	        for python, we can use the newest model
+#Remark3: for nltk, set environment variable is very important to call stanford nlp model
+  https://github.com/nltk/nltk/wiki/Installing-Third-Party-Software
+
+and check these 2 websites for example code:
+http://www.nltk.org/_modules/nltk/tag/stanford.html
+http://www.nltk.org/api/nltk.tag.html#module-nltk.tag.stanford
+
+<how does nltk call stanford pos-tagging module survey:>
+https://github.com/nltk/nltk/wiki/Installing-Third-Party-Software
+https://gist.github.com/alvations/e1df0ba227e542955a8a
+
+http://stackoverflow.com/questions/30821188/python-nltk-pos-tag-not-returning-the-correct-part-of-speech-tag
+http://stackoverflow.com/questions/7344916/trouble-importing-stanford-pos-tagger-into-nltk
+http://stackoverflow.com/questions/27171298/nltk-stanford-pos-tagger-error-java-command-failed
+
+http://textminingonline.com/dive-into-nltk-part-v-using-stanford-text-analysis-tools-in-python
+http://www.nltk.org/_modules/nltk/tag/stanford.html
+
+----------
+602.1.0104 
+----------
+<[python][nltk] What's the u prefix in a python string when pos-tagging:>
+The u in u'Some String' means that your string is a unicode string.
+try str('Some String') or 'Some String'.encode('ascii', 'ignore')
+
+http://stackoverflow.com/questions/2464959/whats-the-u-prefix-in-a-python-string
+https://stackoverflow.com/questions/1207457/convert-a-unicode-string-to-a-string-in-python-containing-extra-symbols
+http://kunststube.net/encoding/
+
+----------
+601.6.0102 
+----------
+<[pos-tagging]<NLTK> pos-tagging efficiency: pre unpickle:>
+http://textminingonline.com/dive-into-nltk-part-iii-part-of-speech-tagging-and-pos-tagger
+
+The default pos tagger model using in NLTK is maxent_treebanck_pos_tagger model, you can find the code in nltk-master/nltk/tag/__init__.py:
+
+# Standard treebank POS tagger
+_POS_TAGGER = 'taggers/maxent_treebank_pos_tagger/english.pickle'
+def pos_tag(tokens):
+    tagger = load(_POS_TAGGER)
+    return tagger.tag(tokens)
+
+def batch_pos_tag(sentences):
+    tagger = load(_POS_TAGGER)
+    return tagger.batch_tag(sentences)
+
+---
+tagger = nltk.load(_POS_TAGGER)
+tagger.tag(…..)
+
+----------
+601.2.1229 
+----------
+<pos-tagging> Stanford Log-linear Part-Of-Speech Tagger
+
+不知為何，雖然我的Java已經是8，且JRE 1.8以上，但是我還是無法用最新版。
+目前可以執行的版本為:
+
+3.4.1 2014-08-27
