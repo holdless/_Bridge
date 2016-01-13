@@ -1,13 +1,10 @@
 602.1.0104 [python][nltk] What's the u prefix in a python string when pos-tagging
 
 The u in u'Some String' means that your string is a unicode string.
-
 try str('Some String') or 'Some String'.encode('ascii', 'ignore')
 
 http://stackoverflow.com/questions/2464959/whats-the-u-prefix-in-a-python-string
-
 https://stackoverflow.com/questions/1207457/convert-a-unicode-string-to-a-string-in-python-containing-extra-symbols
-
 http://kunststube.net/encoding/
 
 601.6.0102 [pos-tagging]<NLTK> pos-tagging efficiency: pre unpickle
@@ -19,32 +16,11 @@ The default pos tagger model using in NLTK is maxent_treebanck_pos_tagger model,
 # Standard treebank POS tagger
 _POS_TAGGER = 'taggers/maxent_treebank_pos_tagger/english.pickle'
 def pos_tag(tokens):
-    """
-    Use NLTK's currently recommended part of speech tagger to
-    tag the given list of tokens.
-
-        >>> from nltk.tag import pos_tag # doctest: +SKIP
-        >>> from nltk.tokenize import word_tokenize # doctest: +SKIP
-        >>> pos_tag(word_tokenize("John's big idea isn't all that bad.")) # doctest: +SKIP
-        [('John', 'NNP'), ("'s", 'POS'), ('big', 'JJ'), ('idea', 'NN'), ('is',
-        'VBZ'), ("n't", 'RB'), ('all', 'DT'), ('that', 'DT'), ('bad', 'JJ'),
-        ('.', '.')]
-
-    :param tokens: Sequence of tokens to be tagged
-    :type tokens: list(str)
-    :return: The tagged tokens
-    :rtype: list(tuple(str, str))
-    """
     tagger = load(_POS_TAGGER)
     return tagger.tag(tokens)
 
 def batch_pos_tag(sentences):
-    """
-    Use NLTK's currently recommended part of speech tagger to tag the
-    given list of sentences, each consisting of a list of tokens.
-    """
     tagger = load(_POS_TAGGER)
-
     return tagger.batch_tag(sentences)
 
 ---
