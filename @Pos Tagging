@@ -45,6 +45,17 @@ function result = PosTaggerM(str)
 	end
 end
 
+#remark1: for matlab -> jre 7
+	for python nltk -> jre 7,8
+#remark2: for matlab we can only use stanford postag model 2014-08-27 (for jre7)
+	for python, we can use the newest model
+#remark3: for nltk, set environment variable is very important to call stanford nlp model
+https://github.com/nltk/nltk/wiki/Installing-Third-Party-Software
+
+and check these 2 websites for example code:
+http://www.nltk.org/_modules/nltk/tag/stanford.html
+http://www.nltk.org/api/nltk.tag.html#module-nltk.tag.stanford
+
 
 602.1.0104 [python][nltk] What's the u prefix in a python string when pos-tagging
 
