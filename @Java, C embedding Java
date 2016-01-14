@@ -4,6 +4,14 @@
 <Getting Started with Java® SE Embedded on the Raspberry Pi:>
 http://www.oracle.com/technetwork/articles/java/raspberrypi-1704896.html
 
+<command-line run NetBeans' builded file:>
+use ".jar"
+1) "dist" folder contains all you need.
+2) some special case, you need to copy related files (which you call in the program) into the "dist" folder.
+3) ex:
+java -jar "Stanford_Pos_Tagger.jar" 
+(remember to copy the models)
+
 ----------
 603.3.0113
 ----------
