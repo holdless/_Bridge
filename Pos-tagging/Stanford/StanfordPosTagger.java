@@ -1,4 +1,11 @@
 /*
+603.5.0115
+to create this java project:
+0) can use newest stanford pos-tagger model
+1) on "Library" folder right click > Add JAR/Folder > add "stanford-postagger.jar"
+2) on "Library" folder right click > Add JAR/Folder > add "slf4j-api.jar", "slf4j-simple.jar"
+*/
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
