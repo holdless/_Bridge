@@ -1,4 +1,12 @@
 ----------
+604.1.0118
+----------
+<c call java setting problem:>
+1. on project righ-click > properties > configuration properties > vc directories > set all include/lib dependencies for Java
+2. Java SE version depends on the Visual Studio version (32 or 64), not the operation system version. wrong version causes "unsolved external..."
+3. remember to add "jvm.lib"
+
+----------
 603.4.0114
 ----------
 <Getting Started with Java® SE Embedded on the Raspberry Pi:>
