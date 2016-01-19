@@ -27,13 +27,15 @@ public class StanfordPosTagger
     public static void main(String[] args) 
     {
         // TODO code application logic here
-        tag();
+        MaxentTagger a = tag();
+        System.out.println(a);
     }
     
-    static void tag()
+    public static MaxentTagger tag()
     {
         // Initialize the tagger
-        MaxentTagger tagger = new MaxentTagger("english-left3words-distsim.tagger");
+        MaxentTagger tagger = new MaxentTagger(".../NetBeansProjects/Stanford Pos Tagger/english-left3words-distsim.tagger");
+//        MaxentTagger tagger = new MaxentTagger(_path);
  
         // The sample string
         String sample = "hello, my name is jack, how are you doing today?";
@@ -42,6 +44,9 @@ public class StanfordPosTagger
         String tagged = tagger.tagString(sample);
  
         // Output the result
-        System.out.println(tagged);    
+        System.out.println(tagged);   
+        
+        return tagger;
     }
 }
+
