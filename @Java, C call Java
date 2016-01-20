@@ -2,9 +2,9 @@
 604.3.0120
 ----------
 <c call Java coding details:>
-. FindClass: env->FindClass("stanford/pos/tagger/StanfordPosTagger")
-must include all package name, and use"/" instead of "."
-. JNI signature of a method:
+1) FindClass: env->FindClass("stanford/pos/tagger/StanfordPosTagger")
+must include all "package name", and use"/" instead of "."
+2) JNI signature of a method:
 Type     Chararacter 
 boolean      Z 
 byte         B 
@@ -20,23 +20,46 @@ array        [
 
 ex:
 long myMethod (int n, String s, int[] arr);
-(ILJAVA/LANG/STRING;[I)J
+>> (ILJAVA/LANG/STRING;[I)J
 
+notice that signature of OBJECT should end with ";"
+
+links:
 http://www.rgagnon.com/javadetails/java-0286.html
 http://blog.csdn.net/jintiaozhuang/article/details/9016889
 
-. C++'s exe file must be put into JRE folder (Setup path in VC folder)
-. update .jar file must "clean and rebuild"!
-. external data file (copy from other place) in "dist" will be swept after "clean and rebuild"
-. c-string is different from Java "jstring" (since jstring is an object in Java)
+3) C++'s .exe file must be put into JRE folder (Setup path in VC folder)
+4) you must update .jar file by "clean and rebuild"!
+5) external data files (copy from other place) in "dist" will be swept after "clean and rebuild"
+6) c-call-java crashes in java code "new MaxentTagger" line >> using absolute-path is ok! (cannot find other solution)
+7) c-string is different from Java "jstring" (since jstring is an object in Java):
+>> ex (c++ code, from c-string to jstring):
+
+jstring str2jstring(JNIEnv* env,const char* pat)
+{
+    jclass strClass = (env)->FindClass("Ljava/lang/String;");
+    jmethodID ctorID = (env)->GetMethodID(strClass, "<init>", "([BLjava/lang/String;)V");
+    jbyteArray bytes = (env)->NewByteArray(strlen(pat));
+    (env)->SetByteArrayRegion(bytes, 0, strlen(pat), (jbyte*)pat);
+    jstring encoding = (env)->NewStringUTF("GB2312"); 
+    return (jstring)(env)->NewObject(strClass, ctorID, bytes, encoding);
+}
+
 <c++/java/netbeans setting:>
-. Netbeans selects 32 or 64 SDK: Application right click > Properties > Libraries > select SDK...
-. Java "static" notation: basically, it's equivalent to Obj-C's "class method"
-. C++ using "string":
+1) How Netbeans selects 32 or 64 SDK >> Application right click > Properties > Libraries > select SDK...
+2) Java "static" notation: basically, it's equivalent to Obj-C's "class method"
+3) C++ using "string" must:
 #include <string>
 #include <iostream>
 using namespace std;
+4) Java String <--> Java char[] transformation: 
+>> String to char[]
+String str = "Abcdefg";
+char[] cArray = str.toCharArray();
 
+>> char[] to String
+char[] charArray = new char[] {'a', 'b', 'c'};
+String str = new String(charArray);
 
 ----------
 604.1.0118
