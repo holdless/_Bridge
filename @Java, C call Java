@@ -47,6 +47,7 @@ jstring str2jstring(JNIEnv* env,const char* pat)
 
 <c++/java/netbeans setting:>
 1) How Netbeans selects 32 or 64 SDK >> Application right click > Properties > Libraries > select SDK...
+however, this won't affect anything...
 2) Java "static" notation: basically, it's equivalent to Obj-C's "class method"
 3) C++ using "string" must:
 #include <string>
