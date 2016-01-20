@@ -12,10 +12,6 @@ to create this java project:
  */
 package stanford.pos.tagger;
 
-/**
- *
- * @author changyht
- */
 import java.io.IOException;
 import edu.stanford.nlp.tagger.maxent.MaxentTagger;
 
