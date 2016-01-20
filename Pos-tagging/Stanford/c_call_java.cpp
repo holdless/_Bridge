@@ -35,8 +35,11 @@ int _tmain(int argc, _TCHAR* argv[])
     jclass cls = env->FindClass("stanford/pos/tagger/StanfordPosTagger");
 	
     // call java method "init" to initialize the stanford pos tagger model
-    jmethodID mid = env->GetStaticMethodID(cls, "init", "()Ledu/stanford/nlp/tagger/maxent/MaxentTagger;");
-    jobject tagger = env->CallStaticObjectMethod(cls, mid);
+    jmethodID mid = env->GetStaticMethodID(cls, "init", "(Ljava/lang/String;)Ledu/stanford/nlp/tagger/maxent/MaxentTagger;");
+    const char *path = ".../Documents/NetBeansProjects/Stanford Pos Tagger/english-left3words-distsim.tagger";
+    // tranform c-string to java-string (since string in Java is an object)
+    jstring jpath = str2jstring(env, path);
+    jobject tagger = env->CallStaticObjectMethod(cls, mid, jpath);
 
     // call java method "tag" to pos-tag sentence
     jmethodID mid2 = env->GetStaticMethodID(cls, "tag", "(Ledu/stanford/nlp/tagger/maxent/MaxentTagger;Ljava/lang/String;)I");
@@ -51,17 +54,17 @@ int _tmain(int argc, _TCHAR* argv[])
 
 jstring str2jstring(JNIEnv* env,const char* pat)
 {
-    //Define java String class "strClass"
+    // Define java String class "strClass"
     jclass strClass = (env)->FindClass("Ljava/lang/String;");
-    //get String(byte[],String) constructor to tranform local byte[] array to a new string.
+    // get String(byte[],String) constructor to tranform local byte[] array to a new string.
     jmethodID ctorID = (env)->GetMethodID(strClass, "<init>", "([BLjava/lang/String;)V");
-    //new a byte array
+    // new a byte array
     jbyteArray bytes = (env)->NewByteArray(strlen(pat));
-    //transform char* into byte array
+    // transform char* into byte array
     (env)->SetByteArrayRegion(bytes, 0, strlen(pat), (jbyte*)pat);
     // set String, preserve language class for the parameters of byte array transform to String
     jstring encoding = (env)->NewStringUTF("GB2312"); 
-    //transform byte array into java String, then output
+    // transform byte array into java String, then output
     return (jstring)(env)->NewObject(strClass, ctorID, bytes, encoding);
 }
  
