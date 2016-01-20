@@ -1,6 +1,45 @@
 ----------
 604.3.0120
 ----------
+<How to compile on RPi? both c and java>
+courtesy of: 
+http://jpsix.pixnet.net/blog/post/23224469-%E4%BD%BF%E7%94%A8jni%E8%AE%93c%2B%2B%E5%8F%AF%E4%BB%A5%E5%91%BC%E5%8F%ABjava%E7%A8%8B%E5%BC%8F---embed-java-in-c-
+
+1) compile HelloWorld.java
+javac HelloWorld.java
+
+2) compile test.cpp
+g++ -I/include -I/include/linux -L/jre/lib/i386/client -ljvm test.cpp -o test
+注意.要include jre/lib/i386/client, g++才能對-ljvm 做出判斷
+在我的環境之下 example
+g++ -I/usr/java/jdk1.6.0_10/include -I/usr/java/jdk1.6.0_10/include/linux -L/usr/java/jdk1.6.0_10/jre/lib/i386/client -ljvm test.cpp -o test
+
+3) run program
+要把/jre/lib/i386/client 加入LD_LIBRARY_PATH
+export export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/jre/lib/i386/client
+or
+修改/etc/bashrc (need root authority)
+同樣加入
+export export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/jre/lib/i386/client
+for example
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/java/jdk1.6.0_10/jre/lib/i386/client
+
+./test
+========同場加映 Performance Evaluation======================
+我將embed Java 和 system function call 做比較
+
+以下是test2.cpp
+
+#include < stdio.h >
+#include < stdlib.h >
+int main()
+{
+    system("java HelloWorld");
+    return 0;
+}
+
+用system call時間差了4.11倍...
+
 <c call Java coding details:>
 1) FindClass: env->FindClass("stanford/pos/tagger/StanfordPosTagger")
 must include all "package name", and use"/" instead of "."
