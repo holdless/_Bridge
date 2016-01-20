@@ -1,4 +1,44 @@
 ----------
+604.3.0120
+----------
+<c call Java coding details:>
+. FindClass: env->FindClass("stanford/pos/tagger/StanfordPosTagger")
+must include all package name, and use"/" instead of "."
+. JNI signature of a method:
+Type     Chararacter 
+boolean      Z 
+byte         B 
+char         C 
+double       D 
+float        F 
+int          I 
+long         J 
+object       L 
+short        S 
+void         V 
+array        [ 
+
+ex:
+long myMethod (int n, String s, int[] arr);
+(ILJAVA/LANG/STRING;[I)J
+
+http://www.rgagnon.com/javadetails/java-0286.html
+http://blog.csdn.net/jintiaozhuang/article/details/9016889
+
+. C++'s exe file must be put into JRE folder (Setup path in VC folder)
+. update .jar file must "clean and rebuild"!
+. external data file (copy from other place) in "dist" will be swept after "clean and rebuild"
+. c-string is different from Java "jstring" (since jstring is an object in Java)
+<c++/java/netbeans setting:>
+. Netbeans selects 32 or 64 SDK: Application right click > Properties > Libraries > select SDK...
+. Java "static" notation: basically, it's equivalent to Obj-C's "class method"
+. C++ using "string":
+#include <string>
+#include <iostream>
+using namespace std;
+
+
+----------
 604.1.0118
 ----------
 <c call java setting problem:>
