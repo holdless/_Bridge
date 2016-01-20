@@ -27,26 +27,28 @@ public class StanfordPosTagger
     public static void main(String[] args) 
     {
         // TODO code application logic here
-        MaxentTagger a = tag();
+        String sentence = "call from java main";
+        String path = ".../Documents/NetBeansProjects/Stanford Pos Tagger/english-left3words-distsim.tagger";
+        MaxentTagger tagger = init(path);
+        int a = tag(tagger, sentence);
         System.out.println(a);
     }
     
-    public static MaxentTagger tag()
+    public static MaxentTagger init(String path)
     {
         // Initialize the tagger
-        MaxentTagger tagger = new MaxentTagger(".../NetBeansProjects/Stanford Pos Tagger/english-left3words-distsim.tagger");
-//        MaxentTagger tagger = new MaxentTagger(_path);
- 
-        // The sample string
-        String sample = "hello, my name is jack, how are you doing today?";
- 
+        MaxentTagger tagger = new MaxentTagger(path);
+        return tagger;
+    }
+    
+    public static int tag(MaxentTagger tagger, String sentence)
+    {
         // The tagged string
-        String tagged = tagger.tagString(sample);
+        String tagged = tagger.tagString(sentence);
  
         // Output the result
         System.out.println(tagged);   
         
-        return tagger;
+        return 1;
     }
 }
-
