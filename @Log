@@ -1,4 +1,29 @@
 ----------
+604.6.0123
+----------
+<ubuntu screen size problem:>
+The message is misleading.
+
+In my case it was actually missing dkms so before you install the addition run
+
+sudo apt-get install build-essential linux-headers-`uname -r` dkms
+shareimprove this answer
+answered Oct 19 '12 at 0:24
+
+dog
+1,091153
+  	 	
+This solved the problem for me too. – Nick Retallack Jan 3 '13 at 20:15
+25	 	
+Use the pacakge linux-headers-generic as it will always point to the latest kernel header package. – ortang May 29 '13 at 8:37
+1	 	
+updating to the latest VirtualBox is what solved it for me, for Ubuntu 13.10 instalation – Răzvan Panda Oct 17 '13 at 17:35
+4	 	
+This shlould be the accepted answer, you have a server, why bother to install xorg??? install dkms and problem solved!!! – Frederic Yesid Peña Sánchez Oct 23 '14 at 0:46
+1	 	
+sudo apt-get install --assume-yes build-essential dkms linux-headers-$(uname -r) and sudo ln -s /usr/src/linux-headers-$(uname -r)/include/generated/uapi/linux/version.h /usr/src/linux-headers-$(uname -r)/include/linux/version.h will sure help – Elad Karako yesterday 
+
+----------
 602.5.0108
 ----------
 <Python: get string representation of PyObject? (if the obj format in C is unknown..):>
