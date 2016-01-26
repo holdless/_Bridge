@@ -1,35 +1,68 @@
-----------
+==========
+605.2.0126
+==========
+----------@hsinchu
+make Tango turn on the light crucial steps:
+1) fully understand what i ask (NLP[rum])
+2) turn on the light ([rum]>[ellum])
+3) point the light to the right place (image proc/ir_sensor [ellum])
+
+----------@hsinchu
+google stt punctation problem
+
+==========
 604.6.0123
-----------
-<ubuntu screen size problem:>
+==========
+----------@taipei
+<ubuntu screen size problem:><from stackoverflow>
 The message is misleading.
 
 In my case it was actually missing dkms so before you install the addition run
 
 sudo apt-get install build-essential linux-headers-`uname -r` dkms
 shareimprove this answer
-answered Oct 19 '12 at 0:24
 
-dog
-1,091153
-  	 	
-This solved the problem for me too. – Nick Retallack Jan 3 '13 at 20:15
-25	 	
 Use the pacakge linux-headers-generic as it will always point to the latest kernel header package. – ortang May 29 '13 at 8:37
-1	 	
 updating to the latest VirtualBox is what solved it for me, for Ubuntu 13.10 instalation – Răzvan Panda Oct 17 '13 at 17:35
-4	 	
 This shlould be the accepted answer, you have a server, why bother to install xorg??? install dkms and problem solved!!! – Frederic Yesid Peña Sánchez Oct 23 '14 at 0:46
-1	 	
 sudo apt-get install --assume-yes build-essential dkms linux-headers-$(uname -r) and sudo ln -s /usr/src/linux-headers-$(uname -r)/include/generated/uapi/linux/version.h /usr/src/linux-headers-$(uname -r)/include/linux/version.h will sure help – Elad Karako yesterday 
 
-----------
+==========
+602.6.0109
+==========
+----------@taipei
+<tensorflow op, japanese's blog, good graph explanaton>
+http://qiita.com/yanosen_jp/items/70e6d6afc36e1c0a3ef3
+
+----------@taipei
+<c embedding py >
+class
+http://www.codeproject.com/Articles/11805/Embedding-Python-in-C-C-Part-I
+
+----------@taipei
+<theano windows installation guide>
+https://github.com/Theano/Theano/wiki/Windowsinstallation
+https://github.com/Theano/Theano/wiki/Windowsinstallation
+MinGW:
+http://www.mingw.org/wiki/Getting_Started
+
+----------@taipei
+<deep learning api comparison>
+http://chiffon.gitcafe.io/2015/11/16/long.html
+
+----------@taipei
+<nltk>
+try some nltk chat demo.
+
+==========
 602.5.0108
-----------
+==========
+----------@hsinchu
 <Python: get string representation of PyObject? (if the obj format in C is unknown..):>
 PyObject* objectsRepresentation = PyObject_Repr(yourObject);
 const char* s = PyString_AsString(objectsRepresentation);
 
+----------@hsinchu
 <refcnt not properly decrease: new ref. by "PyString_FromString" after "PyObject_CallObject":>
 this confuses me all day long....
 the actual solution is to declare "sentence" correctly. for example:
@@ -38,9 +71,10 @@ const char sentence[] = "i am jack"; <-- wrong! it's not equal though i don't kn
 pSentence = PyString_FromString(sentence)
 Py_DECREF(pSentence);
 
-----------
+==========
 602.4.0107
-----------
+==========
+----------@hsinchu
 <Python/C API: "PyInt_FromLong" add reference count oddly:>
 https://docs.python.org/2/c-api/int.html
 " PyObject* PyInt_FromLong(long ival)
@@ -63,6 +97,7 @@ if the return value or name of return value is:
 	3) unknown object?!
 and I don't know will it cause memory leak if the refcnt after "Py_Finalize()" function...	
 
+----------@hsinchu
 <about the annoying reference count mechanism in python:>
 pseudo code: (-> means "point to", {.} means obj ifself)
     PyObject *pName, *pModule, *pDict, *pFunc;
@@ -74,10 +109,10 @@ pseudo code: (-> means "point to", {.} means obj ifself)
     pFunc = PyObject_GetAttrString(pModule, "loadPickle"); // refcnt +2 ( pFunc->{func_obj}, and pFunc->pModule->{module_obj} )
     pValue = PyObject_CallObject(pFunc, NULL); // refcnt +1 ( only pValue->{Value_obj}, input vars are not involved since the output just borrow the input reference )
 
-
-----------
+==========
 602.3.0106
-----------
+==========
+----------@hsinchu
 <VC++/windows embedding python script "pure/separate" problem:>
 1) just like in linux system, "PySys_SetArgv(argc, argv)" must be added
     Py_SetProgramName(argv[0]);
@@ -86,15 +121,14 @@ pseudo code: (-> means "point to", {.} means obj ifself)
 //    pName = PyString_FromString(argv[1]);
     pName = PyString_FromString("_postag");
     
-
 PyObject* PyInt_FromLong(long ival)
 Return value: New reference.
 Create a new integer object with a value of ival.
 
-
-----------
+==========
 602.2.0105
-----------
+==========
+----------@hsinchu
 <VC++/windows embedding python script problem:>
 1) don't forget to include python27.lib
 2) 	
@@ -109,16 +143,17 @@ Create a new integer object with a value of ival.
 	Py_Finalize();
 	return 0;	  
 
+----------@hsinchu
 <VC++/windows embedding python script "pure" problem>
 1) copy python27.lib and rename to "python27_d.lib"
 2) import this new "python27_d.lib" to project
 3) revise "pyconfig.h"，comment "#define Py_DEBUG"
 #remark: notice that this trick also solves above problem
 
-
-----------
+==========
 602.1.0104
-----------
+==========
+----------@hsinchu
 <C++ embedding python script problem:>
 
 add MS_NO_COREDLL definition at Configuration Properties->C/C++->Preprocessor->Preprocessor Definitions; or add #define MS_NO_COREDLL line before including python.h.
@@ -128,7 +163,8 @@ add MS_NO_COREDLL definition at Configuration Properties->C/C++->Preprocessor->P
 
 ==========
 543.4.1022
-----------
+==========
+----------@hsinchu
 <OpenCV dependency for VC:>
 Properties > Linker > Input >
 
@@ -173,5 +209,6 @@ opencv_ts2411.lib
 opencv_video2411.lib
 opencv_videostab2411.lib
 
+----------@hsinchu
 <OpenCV haar classifier>
 D:/opencv/build/share/OpenCV/haarcascades
