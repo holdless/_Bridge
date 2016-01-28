@@ -67,10 +67,12 @@ links:
 http://www.rgagnon.com/javadetails/java-0286.html
 http://blog.csdn.net/jintiaozhuang/article/details/9016889
 
-3) C++'s .exe file must be put into JRE folder (Setup path in VC folder)
+3) C++'s .exe file must be put into JRE folder (Setup path in VC folder) 
+--> not necessary (605.4.0128)! just setup EXPORT path to libjvm.so
+--> export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/jvm/jdk-8-oracle-arm-vfp-hflt/jre/lib/arm/client
 4) you must update .jar file by "clean and rebuild"!
 5) external data files (copy from other place) in "dist" will be swept after "clean and rebuild"
-6) c-call-java crashes in java code "new MaxentTagger" line >> using absolute-path is ok! (cannot find other solution)
+6) c-call-java crashes in java code "new MaxentTagger" line >> using absolute-path is ok! (cannot find other solution) << true
 7) c-string is different from Java "jstring" (since jstring is an object in Java):
 >> ex (c++ code, from c-string to jstring):
 
