@@ -1,6 +1,17 @@
-----------
+==========
+609.4.0225
+==========
+----------@hsinchu
+<web-server: where to put the resource files (like images) and how to point to them in java?>
+1. basically, you can put them anywhere as long as you point the "absolute path" to them.
+    1) for only Java, the relative path is /.../projectName/<here>
+    2) for C-call-Java, currently it could only work on the absolute path
+
+
+==========
 604.3.0120
-----------
+==========
+----------@taipei
 <How to compile on RPi? both c and java>
 courtesy of: 
 http://jpsix.pixnet.net/blog/post/23224469-%E4%BD%BF%E7%94%A8jni%E8%AE%93c%2B%2B%E5%8F%AF%E4%BB%A5%E5%91%BC%E5%8F%ABjava%E7%A8%8B%E5%BC%8F---embed-java-in-c-
@@ -25,7 +36,7 @@ for example
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/java/jdk1.6.0_10/jre/lib/i386/client
 
 ./test
-========同場加映 Performance Evaluation======================
+<<<<<<<<<同場加映 Performance Evaluation>>>>>>>>
 我將embed Java 和 system function call 做比較
 
 以下是test2.cpp
@@ -40,6 +51,7 @@ int main()
 
 用system call時間差了4.11倍...
 
+----------@hsinchu
 <c call Java coding details:>
 1) FindClass: env->FindClass("stanford/pos/tagger/StanfordPosTagger")
 must include all "package name", and use"/" instead of "."
@@ -86,6 +98,7 @@ jstring str2jstring(JNIEnv* env,const char* pat)
     return (jstring)(env)->NewObject(strClass, ctorID, bytes, encoding);
 }
 
+----------@hsinchu
 <c++/java/netbeans setting:>
 1) How Netbeans selects 32 or 64 SDK >> Application right click > Properties > Libraries > select SDK...
 however, this won't affect anything...
@@ -103,17 +116,19 @@ char[] cArray = str.toCharArray();
 char[] charArray = new char[] {'a', 'b', 'c'};
 String str = new String(charArray);
 
-----------
+==========
 604.1.0118
-----------
+==========
+----------@hsinchu
 <c call java setting problem:>
 1. on project righ-click > properties > configuration properties > vc directories > set all include/lib dependencies for Java
 2. Java SE version depends on the Visual Studio version (32 or 64), not the operation system version. wrong version causes "unsolved external..."
 3. remember to add "jvm.lib"
 
-----------
+==========
 603.4.0114
-----------
+==========
+----------@hsinchu
 <Getting Started with Java® SE Embedded on the Raspberry Pi:>
 http://www.oracle.com/technetwork/articles/java/raspberrypi-1704896.html
 
@@ -125,9 +140,10 @@ use ".jar"
 java -jar "Stanford_Pos_Tagger.jar" 
 (remember to copy the models)
 
-----------
+==========
 603.3.0113
-----------
+==========
+----------@hsinchu
 <Embed Java into a C++ application?>
 http://stackoverflow.com/questions/7506329/embed-java-into-a-c-application
 
