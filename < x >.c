@@ -12,21 +12,26 @@ _TANGO:
     //2. wifi connect (py config wifi)
     3. *alphabet corresponding table (py)
     4. battery status check (circuit included)
-    5. survey: soft-hard lock mechanism
+    5. *survey: soft-hard lock mechanism
 ----------
   Facerec:
-    1. *procedures, identifying face
+    1. *procedures: identifying face
 ----------
   Tracking:
-    1. *procidures, identifying tracking obj
+    1. *procidures: identifying tracking obj
 ----------
   Remote:
     1. *web-server
+      1. *c call java webserver
     2. client:
       1. iOS: TCP socket
       2. *browser: HTML
-    3. OpenCV data info dispalying
+    3. *OpenCV data info dispalying
     4. live streaming
+      1. ffserver
+      2. mpeg streamer
+      3. VLC
+      4. OpenCV MJPEG
 ----------
   Mechanism & configuration:
     1. >head/neck mechanism & servos design
