@@ -9,7 +9,7 @@ _TANGO:
 ----------
   Int:
     1. *(voice input) password input, wifi connect scenario
-    ~~2. wifi connect (py config wifi)~~
+    //2. wifi connect (py config wifi)
     3. *alphabet corresponding table (py)
     4. battery status check (circuit included)
     5. survey: soft-hard lock mechanism
