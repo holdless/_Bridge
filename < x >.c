@@ -1,5 +1,5 @@
 ==========
-_TANGO:
+TANGO:
 ==========
 ----------
   Talk:
@@ -51,24 +51,25 @@ _TANGO:
 ==========
 COLOMBO:
 ==========
+[Image Processing]
 ----------
   Hot-zone detection:
-    1. survey: IR cam / nightseen cam
-    2. *algorithm
+    1) survey: IR cam / nightseen cam
+    2) *algorithm
 ----------
   Visual feature extraction:
-    1. *algorithm
+    1) *algorithm
+----------
+  Image stabilization:
+    1) *image part
+    2) video part
+----------
+
+[Deep Learning]
 ----------
   Tensorflow:
     1. tutorial
     2. adder/multiplier
-----------
-  SLAM:
-    1. *algorithm study
-----------
-  Image stabilization:
-    1. *image part
-    2. video part
 ----------
   ML:
     1. *ada-boost for cat face
@@ -77,11 +78,27 @@ COLOMBO:
     4. ^read: generative vs. discriminative model
     5. *coursera: VC.dimension
 ----------
-  ^PageRank:
+
+[Robotics]
+----------
+  SLAM:
+    1. *coursera: algorithm study
+----------
+
+[Web technology]
+----------
+  Searching:
+    1. ^PageRank:
+----------
+
+[Reverse Engineering]
+----------
+  Fundamentals:
+    1. *survey: if statement
 ----------
 
 ==========
-WATT LAB:
+WATT Lab:
 ==========
 ----------
   *Coursera: quadrotor
@@ -92,7 +109,7 @@ WATT LAB:
 ----------
 
 ==========
-FEYNMAN LAB:
+FEYNMAN Lab:
 ==========
 ----------
   ^Interstellar and related Einstein's theories
@@ -105,11 +122,11 @@ FEYNMAN LAB:
 ----------
 
 ==========
-IRON LAB:
+IRON Lab:
 ==========
 
 ==========
-MONET STUDIO:
+MONET Studio:
 ==========
   Engish: 1) CNN
   Spanish: 1) ^podcast
