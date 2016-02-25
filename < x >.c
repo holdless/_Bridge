@@ -22,12 +22,18 @@ TANGO:
 ----------
   Remote:
     1. *web-server
-      1. *c call java webserver
-    2. client:
-      1. iOS: TCP socket
-      2. *browser: HTML
-    3. *OpenCV data info dispalying
-    4. live streaming
+      1) SRV: 
+        //a. *c call java webserver
+        //b. request for image -> response
+        c. browser layout (shooting script)
+        d. login/password
+      2) client:
+        a. iOS: TCP socket
+        b. browser: 
+          1. *HTML5 simple case
+          2. *client layout logic
+    2. *OpenCV data info dispalying (shooting script)
+    3. live streaming
       1. ffserver
       2. mpeg streamer
       3. VLC
