@@ -1,4 +1,12 @@
 ==========
+_Bridge:
+==========
+  1. pi/air/win folder arrangement/github
+  2. evernote tag
+  3. 大魚日和森林步道 咖啡
+  4. tokyo trip
+  
+==========
 TANGO:
 ==========
 ----------
@@ -166,7 +174,6 @@ Linguistic Center:
 Alaska Club:
 ==========
   1. Alaska trip
-  2. 森林步道 咖啡 餐廳
-  3. Pacific crest trail
-  4. Hawaii surf
-  5. 台東 surf
+  2. Pacific crest trail
+  3. Hawaii surf
+  4. 台東 surf
