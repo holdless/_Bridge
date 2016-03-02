@@ -10,7 +10,7 @@ TANGO:
   Int:
     1. *(voice input) password input, wifi connect scenario
     //2. wifi connect (py config wifi)
-    3. *alphabet corresponding table (py)
+    //3. *alphabet corresponding table (py)
     4. battery status check (circuit included)
     5. *survey: soft-hard lock mechanism
 ----------
@@ -25,19 +25,20 @@ TANGO:
       1) SRV: 
         //a. *c call java webserver
         //b. request for image -> response
-        c. browser layout (shooting script)
+        //c. browser layout (shooting script)
         d. login/password
       2) client:
         a. iOS: TCP socket
         b. browser: 
-          1. *HTML5 simple case
-          2. *client layout logic
-    2. *OpenCV data info dispalying (shooting script)
+          1. *button location (css)
+          2. *button, input: <form action = "*.php"> (php), to server
+          3. *button, action, to server
+    //2. *OpenCV data info dispalying (shooting script)
     3. live streaming
-      1. ffserver
-      2. mpeg streamer
-      3. VLC
-      4. OpenCV MJPEG
+      ////1. ffserver
+      2. mjpg-streamer
+      ////3. VLC
+      4. mjpg-streamer/web-server/opencv integration
 ----------
   Mechanism & configuration:
     1. >head/neck mechanism & servos design
@@ -126,19 +127,46 @@ FEYNMAN Lab:
 ----------
   *Behavioral Economics: paper submit
 ----------
-
+  ^Books: 1) 精準預測 2) 17-eqs 3) 悖論 4) interstellar
 ==========
 IRON Lab:
 ==========
+  Network Security Group:
+    1. Wifi hacking
 
 ==========
 MONET Studio:
 ==========
-  Engish: 1) CNN
-  Spanish: 1) ^podcast
-  French: 1) ^podcast
-  Japanese: 1) review 2) class
   ^Draw: 1) 速寫 2) sketching
   Guitar: 1) Jazz chord/scales 2) blues daily practice/listening
-  ^Books: 1) 精準預測 2) 17-eqs 3) 悖論 4) interstellar 5) 不可侵犯的尊嚴
   
+==========
+Marx Club:
+==========
+  ^Books: 5) 可侵犯的尊嚴
+
+==========
+Linguistic Center:
+==========
+  Engish: 
+    1) CNN/BBC
+  Spanish: 
+    1) be-V 
+    2) dialog
+    3) family
+  French: 
+    1) coffee/food/in restaurant
+    2) family
+    3) be-V
+  Japanese: 
+    1) review 
+    2) 中山教室
+  
+==========
+Alaska Club:
+==========
+  1. Alaska trip
+  2. 森林步道 咖啡 餐廳
+  3. Pacific crest trail
+  4. Hawaii surf
+  5. 台東 surf
