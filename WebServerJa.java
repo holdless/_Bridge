@@ -1,6 +1,6 @@
 /*
-609.4.0225@hsinchu
-610.2.0301@hsinchu
+609.4.0225----------@hsinchu
+610.2.0301----------@hsinchu
   <HTTP transmission mechanism:>
     [Client request]: "GET /a.html HTTP/1.1" or "GET / HTTP/1.1"
     [SRV response]:   "HTTP/1.1 200 OK\r\n"
@@ -26,9 +26,14 @@
   
 <path default:>
   Java project "root" directory
+  
+610.3.0302----------@hsinchu
+<log> add exception handle
+<log> add form/button/submit msg handle (notice that msg will always end with "?")
  */
 package wjawebserver;
 
+import java.io.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
@@ -57,6 +62,42 @@ public class WJaWebServer {
     {
         webServer2(8088);
     }
+    
+    public static void exceptionMsg(DataOutputStream outToClient, 
+                                    String sysMsg, 
+                                    String htmlTitle, 
+                                    String htmlH1) throws IOException
+    {
+        System.out.println(sysMsg);
+        outToClient.writeBytes("HTTP/1.1 200 OK\r\n");
+        outToClient.writeBytes("Content-Type: text/html\r\n");
+        outToClient.writeBytes("\r\n");
+        outToClient.writeBytes("<head>");
+        outToClient.writeBytes("<LINK REL='SHORTCUT ICON' HREF='blueJ.ico'>\r\n");
+        outToClient.writeBytes("<title>" + htmlTitle + "</title>\r\n");
+        outToClient.writeBytes("</head>");
+        outToClient.writeBytes("<body>");
+        outToClient.writeBytes("<h1>" + htmlH1 + "</h1>");
+        outToClient.writeBytes("</body>");
+
+    }
+    
+    public static void simpleHTMLResponse(DataOutputStream outToClient, 
+                                          String htmlH1) throws IOException
+    {
+        System.out.println(">>simple HTML reponse>>");
+        outToClient.writeBytes("HTTP/1.1 200 OK\r\n");
+        outToClient.writeBytes("Content-Type: text/html\r\n");
+        outToClient.writeBytes("\r\n");
+        outToClient.writeBytes("<head>");
+        outToClient.writeBytes("<LINK REL='SHORTCUT ICON' HREF='blueJ.ico'>\r\n");
+        outToClient.writeBytes("<title>simple HTML response</title>\r\n");
+        outToClient.writeBytes("</head>");
+        outToClient.writeBytes("<body>");
+        outToClient.writeBytes("<h1>" + htmlH1 + "</h1>");
+        outToClient.writeBytes("</body>");
+    }
+    
 /*    
     public static void webServer(int localPort) throws IOException
     {
@@ -102,7 +143,7 @@ public class WJaWebServer {
                     {
                         String filePath = "";
                         String formatTag = "text/html";
-                        boolean correctFileName = true;
+                        boolean isCmd = false;
                         
                         if (fileName.endsWith(".html"))
                         {
@@ -129,42 +170,76 @@ public class WJaWebServer {
                             filePath = "images/";
                             formatTag = "image/png";
                         }
-                        else
-                            correctFileName = false;
-                        
-                        if (correctFileName)
+                        // remote control instruction
+                        else if (fileName.startsWith("myCmd"))
+                            isCmd = true;
+
+                        if (isCmd)
                         {
-                        File file = new File(filePath + fileName);
-                        int numOfBytes = (int) file.length();
+                            if (fileName.endsWith("up?"))
+                            {
+                                simpleHTMLResponse(outToClient, "UP");
+                            }
+                            else if (fileName.endsWith("down?"))
+                            {
+                                simpleHTMLResponse(outToClient, "DOWN");
+                            }
+                            else if (fileName.endsWith("right?"))
+                            {
+                                simpleHTMLResponse(outToClient, "RIGHT");
+                            }
+                            else if (fileName.endsWith("left?"))
+                            {
+                                simpleHTMLResponse(outToClient, "LEFT");
+                            }
+                            else
+                            {
+                                exceptionMsg(outToClient, 
+                                             "Exception::Command not found.", 
+                                             "Command Not Found!!", 
+                                             "no such command!");
+                            }
+                        }
+                        else
+                        {
+                            try 
+                            {
+                                File file = new File(filePath + fileName);
+                                int numOfBytes = (int) file.length();
+                                FileInputStream inFile = new FileInputStream(filePath + fileName);
+                                byte[] fileInBytes = new byte[numOfBytes];
 
-                        FileInputStream inFile = new FileInputStream(filePath + fileName);
-   
-                        byte[] fileInBytes = new byte[numOfBytes];
+                                inFile.read(fileInBytes);
 
-                        inFile.read(fileInBytes);
-
-                        outToClient.writeBytes("HTTP/1.1 200 OK\r\n");
-                        outToClient.writeBytes("Content-Type: " + formatTag + "\r\n");
-//                        outToClient.writeBytes("Content-Type: image/jpeg\r\n");
-                        outToClient.writeBytes("Content-Length: "+numOfBytes+"\r\n");
-                        outToClient.writeBytes("\r\n");
-                        outToClient.write(fileInBytes, 0, numOfBytes);
-                        inFile.close();
-                        System.out.println("Sending data completely.");
+                                outToClient.writeBytes("HTTP/1.1 200 OK\r\n");
+                                outToClient.writeBytes("Content-Type: " + formatTag + "\r\n");
+                                outToClient.writeBytes("Content-Length: " + numOfBytes + "\r\n");
+                                outToClient.writeBytes("\r\n");
+                                outToClient.write(fileInBytes, 0, numOfBytes);
+                                inFile.close();
+                                System.out.println("Sending data completely.");
+                            } 
+                            catch (FileNotFoundException fnf) 
+                            {
+                                exceptionMsg(outToClient, 
+                                             "Exception:: file not found!", 
+                                             "File Not Found!!", 
+                                             "file not found/no such operation!");
+                            }
                         }
                     }
-                    else 
+                    else // "GET / HTTP/1.1"
                     {
                         outToClient.writeBytes("HTTP/1.1 200 OK\r\n");
                         outToClient.writeBytes("Content-Type: text/html\r\n");
                         outToClient.writeBytes("\r\n");
                         outToClient.writeBytes("<head>");
                         outToClient.writeBytes("<LINK REL='SHORTCUT ICON' HREF='blueJ.ico'>\r\n");
-                        outToClient.writeBytes("<title>TITLE</title>\r\n");
+                        outToClient.writeBytes("<title>hiroshi's SRV</title>\r\n");
                         outToClient.writeBytes("</head>");
                         outToClient.writeBytes("<body>");
-                        outToClient.writeBytes("<h1>Welcome to the Java WebServer</h1>\r\n");
-                        outToClient.writeBytes("<p>welcome to the jungle</p>\r\n");
+                        outToClient.writeBytes("<h1>Welcome to Data Server</h1>\r\n");
+                        outToClient.writeBytes("<p>SEM-data:</p>\r\n");
                         outToClient.writeBytes("<a href = \"http://www.google.com\">google</a>\r\n");
                         outToClient.writeBytes("<img src = 'cdsem.jpg' alt='yes' width='600' height='400'>\r\n");
                         outToClient.writeBytes("</body>");
