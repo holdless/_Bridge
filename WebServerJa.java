@@ -23,6 +23,9 @@
   1. image files: images/
   2. icon files: icons/
   3. html files: root directory
+  
+<path default:>
+  Java project "root" directory
  */
 package wjawebserver;
 
