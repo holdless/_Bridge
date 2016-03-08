@@ -30,10 +30,13 @@
 610.3.0302----------@hsinchu
 <log> add exception handle
 <log> add form/button/submit msg handle (notice that msg will always end with "?")
+
+610.5.0304----------@hsinchu
+<log> server-sent events
  */
 package wjawebserver;
 
-import java.io.*;
+import java.io.*; // for exception handle
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
@@ -48,7 +51,6 @@ import java.io.InputStreamReader;
 //import java.net.Socket;
 import java.util.StringTokenizer;
 
-
 /**
  *
  * @author changyht
@@ -58,16 +60,14 @@ public class WJaWebServer {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException
-    {
+    public static void main(String[] args) throws IOException {
         webServer2(8088);
     }
-    
-    public static void exceptionMsg(DataOutputStream outToClient, 
-                                    String sysMsg, 
-                                    String htmlTitle, 
-                                    String htmlH1) throws IOException
-    {
+
+    public static void exceptionMsg(DataOutputStream outToClient,
+            String sysMsg,
+            String htmlTitle,
+            String htmlH1) throws IOException {
         System.out.println(sysMsg);
         outToClient.writeBytes("HTTP/1.1 200 OK\r\n");
         outToClient.writeBytes("Content-Type: text/html\r\n");
@@ -81,10 +81,9 @@ public class WJaWebServer {
         outToClient.writeBytes("</body>");
 
     }
-    
-    public static void simpleHTMLResponse(DataOutputStream outToClient, 
-                                          String htmlH1) throws IOException
-    {
+
+    public static void simpleHTMLResponse(DataOutputStream outToClient,
+            String htmlH1) throws IOException {
         System.out.println(">>simple HTML reponse>>");
         outToClient.writeBytes("HTTP/1.1 200 OK\r\n");
         outToClient.writeBytes("Content-Type: text/html\r\n");
@@ -97,8 +96,8 @@ public class WJaWebServer {
         outToClient.writeBytes("<h1>" + htmlH1 + "</h1>");
         outToClient.writeBytes("</body>");
     }
-    
-/*    
+
+    /*    
     public static void webServer(int localPort) throws IOException
     {
         ServerSocket listener = new ServerSocket(localPort);
@@ -109,98 +108,107 @@ public class WJaWebServer {
             sock.close();
         }
     }
-*/    
-    public static void webServer2(int localPort) throws IOException
-    {
+     */
+    public static void webServer2(int localPort) throws IOException {
         String requestMessageLine;
         String fileName;
         System.out.println("Web Server Starting on Port " + localPort);
         ServerSocket s = new ServerSocket(localPort);
 
-
         System.out.println("Waiting for Connecting...");
-        
-        while(true) 
-        {
+
+        int showUp = 0;
+        while (true) {
             Socket serverSocket = s.accept();
             System.out.println("Connection, sending data.");
             BufferedReader in = new BufferedReader(new InputStreamReader(serverSocket.getInputStream()));
             DataOutputStream outToClient = new DataOutputStream(serverSocket.getOutputStream());
 
             requestMessageLine = in.readLine();
-            
+
             if (requestMessageLine != null) // 609.4.0225 hiroshi:after first loop wont post any string
             {
                 StringTokenizer tokenizedLine = new StringTokenizer(requestMessageLine);
 
-                if (tokenizedLine.nextToken().equals("GET")) 
-                {
+                if (tokenizedLine.nextToken().equals("GET")) {
                     fileName = tokenizedLine.nextToken();
-                    if(fileName.startsWith("/")==true)
+                    if (fileName.startsWith("/") == true) {
                         fileName = fileName.substring(1);
+                    }
 
-                    if(!fileName.isEmpty()) 
-                    {
+                    if (!fileName.isEmpty()) {
                         String filePath = "";
                         String formatTag = "text/html";
                         boolean isCmd = false;
-                        
-                        if (fileName.endsWith(".html"))
-                        {
+                        boolean isSrvSent = false;
+
+                        if (fileName.endsWith(".html")) {
                             filePath = "";
                             formatTag = "text/html";
-                        }
-                        else if (fileName.endsWith(".ico"))
-                        {
+                        } else if (fileName.endsWith(".ico")) {
                             filePath = "icons/";
                             formatTag = "icon/ico";
-                        }
-                        else if (fileName.endsWith(".jpg"))
-                        {
+                        } else if (fileName.endsWith(".jpg")) {
                             filePath = "images/";
                             formatTag = "image/jpeg";
-                        }
-                        else if (fileName.endsWith(".gif"))
-                        {
+                        } else if (fileName.endsWith(".gif")) {
                             filePath = "images/";
                             formatTag = "image/gif";
-                        }
-                        else if (fileName.endsWith(".png"))
-                        {
+                        } else if (fileName.endsWith(".png")) {
                             filePath = "images/";
                             formatTag = "image/png";
-                        }
-                        // remote control instruction
-                        else if (fileName.startsWith("myCmd"))
+                        } // remote control instruction
+                        else if (fileName.startsWith("myCmd")) {
                             isCmd = true;
+                            filePath = "";
+                            formatTag = "text/html";
+                        } // server-sent events
+                        else if (fileName.startsWith("srvSent")) {
+                            isSrvSent = true;
+                        }
+
+                        if (isCmd) {
+                            if (fileName.endsWith("up?")) {
+//                                simpleHTMLResponse(outToClient, "UP");
+                                showUp = 1;
+                            } else if (fileName.endsWith("down?")) {
+                                //simpleHTMLResponse(outToClient, "DOWN");
+                                showUp = 0;
+                            } else if (fileName.endsWith("right?")) {
+                                //simpleHTMLResponse(outToClient, "RIGHT");
+                                showUp = 0;
+                            } else if (fileName.endsWith("left?")) {
+                                //simpleHTMLResponse(outToClient, "LEFT");
+                                showUp = 0;
+                            } else {
+                                showUp = 0;
+                                exceptionMsg(outToClient,
+                                        "Exception::Command not found.",
+                                        "Command Not Found!!",
+                                        "no such command!");
+                            }
+                        }
 
                         if (isCmd)
                         {
-                            if (fileName.endsWith("up?"))
-                            {
-                                simpleHTMLResponse(outToClient, "UP");
-                            }
-                            else if (fileName.endsWith("down?"))
-                            {
-                                simpleHTMLResponse(outToClient, "DOWN");
-                            }
-                            else if (fileName.endsWith("right?"))
-                            {
-                                simpleHTMLResponse(outToClient, "RIGHT");
-                            }
-                            else if (fileName.endsWith("left?"))
-                            {
-                                simpleHTMLResponse(outToClient, "LEFT");
-                            }
-                            else
-                            {
-                                exceptionMsg(outToClient, 
-                                             "Exception::Command not found.", 
-                                             "Command Not Found!!", 
-                                             "no such command!");
-                            }
+                            outToClient.writeBytes("HTTP/1.1 204 No Content\r\n");
                         }
-                        else
+                        else if (isSrvSent) 
+                        {
+                            System.out.println("server-sent...");
+
+                            outToClient.writeBytes("HTTP/1.1 200 OK\r\n");
+                            outToClient.writeBytes("Content-Type: text/event-stream\n\n");
+//                            outToClient.writeBytes("Content-Type: text/event-stream; charset=utf-8\n\n");
+                            outToClient.writeBytes("Cache-Control: no-cache\r\n");
+                            outToClient.writeBytes("\r\n");
+                            outToClient.writeBytes("event: message\n");
+                            outToClient.writeBytes("data: " + System.currentTimeMillis() + "\n\n");
+                            outToClient.writeBytes("event:cmdUp\n");
+                            outToClient.writeBytes("data: " + showUp + "\n\n");
+
+                        } 
+                        else 
                         {
                             try 
                             {
@@ -217,17 +225,19 @@ public class WJaWebServer {
                                 outToClient.writeBytes("\r\n");
                                 outToClient.write(fileInBytes, 0, numOfBytes);
                                 inFile.close();
+
                                 System.out.println("Sending data completely.");
                             } 
                             catch (FileNotFoundException fnf) 
                             {
-                                exceptionMsg(outToClient, 
-                                             "Exception:: file not found!", 
-                                             "File Not Found!!", 
-                                             "file not found/no such operation!");
+                                outToClient.writeBytes("\r\n");
+                                exceptionMsg(outToClient,
+                                        "Exception:: file not found!",
+                                        "File Not Found!!",
+                                        "file not found/no such operation!");
                             }
                         }
-                    }
+                    } 
                     else // "GET / HTTP/1.1"
                     {
                         outToClient.writeBytes("HTTP/1.1 200 OK\r\n");
@@ -247,10 +257,12 @@ public class WJaWebServer {
                     }
                     serverSocket.close();
                     outToClient.flush();
-                }
-                else
+                } 
+                else 
+                {
                     System.out.println("Bad Request Message");
-            
+                }
+
             }
         }
     }
