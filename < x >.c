@@ -61,16 +61,14 @@ TANGO:
   Static Sensor:
     1. >other sensors
 ----------
-[Navi]
+[Navi & Drivetrain]
   Sensor:
     1. ultrasonic function test
     2. motin sensor test
     3. *survey: laser distance
   Algorithm:
     1. SLAM
-----------
-[Drivetrain]
-    1. straight-moving problem
+    2. straight-moving problem
 ----------
 
 ==========
