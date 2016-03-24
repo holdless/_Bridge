@@ -1,5 +1,4 @@
-
-Clause Level
+Clause Level:
 
 S - simple declarative clause, i.e. one that is not introduced by a (possible empty) subordinating conjunction or a wh-word and that does not exhibit subject-verb inversion.
 SBAR - Clause introduced by a (possibly empty) subordinating conjunction.
@@ -7,7 +6,8 @@ SBARQ - Direct question introduced by a wh-word or a wh-phrase. Indirect questio
 SINV - Inverted declarative sentence, i.e. one in which the subject follows the tensed verb or modal.
 SQ - Inverted yes/no question, or main clause of a wh-question, following the wh-phrase in SBARQ.
 
-Phrase Level
+
+Phrase Level:
 
 ADJP - Adjective Phrase.
 ADVP - Adverb Phrase.
@@ -30,7 +30,9 @@ WHAVP - Wh-adverb Phrase. Introduces a clause with an NP gap. May be null (conta
 WHNP - Wh-noun Phrase. Introduces a clause with an NP gap. May be null (containing the 0 complementizer) or lexical, containing some wh-word, e.g. who, which book, whose daughter, none of which, or how many leopards.
 WHPP - Wh-prepositional Phrase. Prepositional phrase containing a wh-noun phrase (such as of which or by whose authority) that either introduces a PP gap or is contained by a WHNP.
 X - Unknown, uncertain, or unbracketable. X is often used for bracketing typos and in bracketing the...the-constructions.
-Word level
+
+
+Word level:
 
 CC - Coordinating conjunction
 CD - Cardinal number
