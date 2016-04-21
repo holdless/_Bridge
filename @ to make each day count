@@ -1,10 +1,39 @@
 ==========
+617.7.0424
+----------
+A:[surf]
+B:[tango] test old functions after re-install pi32
+C:
+
+==========
+617.6.0423
+----------
+A:[tango]
+  [course] CS231n: Convolutional Neural Networks for Visual Recognition [1/...]
+B:[workout]
+C:
+
+==========
+617.5.0422
+----------
+A:[tango] talk: rule base fix
+  [article]
+B:[language] coffee break french [21, weather]
+  [workout]
+C:
+
+>>>
+==========
 617.4.0421
 ----------
-A:[article] Andrej Karpahy: Breaking linear classifiers on ImageNet [2/...]
+A:[article] Andrej Karpathy: Breaking linear classifiers on ImageNet [2/2]
+  [article] Andrej Karpathy: The unreasonable effectiveness of RNNs [2/...]
 B:[tango] install pi32 [2/...]
-  [language] coffee break french 21, weather
+  [language] coffee break french [21, weather]
+  [workout] push-up 20x2, sit-up 20x2
 C:[studio] katatsuke masu
+  [buy] check o'neill surf hat
+  [buy] george shoes
 
 ==========
 617.3.0420
@@ -17,6 +46,6 @@ C:[buy] earphone
 617.2.0419
 ----------
 A:[book] the signal & the noise [1/...]
-  [article] Andrej Karpahy: Breaking linear classifiers on ImageNet [1/...]
+  [article] Andrej Karpathy: Breaking linear classifiers on ImageNet [1/2]
 B:[language] coffee break french review 1~19
 C:
