@@ -19,7 +19,7 @@ shakespeare club:
 T:
   12) forecasting minefield & corporate it to DNN: it helps us to understand features and representations
 
-+++++++++++++++++++++++++++++++++++++
+/////////////////////////////////////////////////////////////
 
 ==========
 617.7.0424
@@ -71,8 +71,9 @@ Evening:
 TR: 
   [language] coffee break french [21-23]
 --RESULT--
-A:
-B: [workout] 20xSU + 20xPU
+A:[article] Visualizing MNIST: An Exploration of Dimensionality Reduction [1/...]
+B:[workout] 20xSU + 20xPU
+  [pi] check why fail to install opencv 3
 C:
   
 ==========
