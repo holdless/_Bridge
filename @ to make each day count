@@ -1,39 +1,86 @@
+recent topic groups:
+colombo:
+  1) DNN for NLP: in a practice and classifying way
+  2) Image captioning (including stanford youtube course)
+tango:
+  3) fix streaming problem
+  4) start inte main structure
+  5) battery management study
+watt lab:
+  6) SLAM and related courses (2x)
+feynman lab:
+  7) George price equation
+monet studio:
+  8)list songs practice
+  9)colin davidson study and mimic
+shakespeare club:
+  10) 精準預測
+  11) 可侵犯的尊嚴
+T:
+  12) forecasting minefield & corporate it to DNN: it helps us to understand features and representations
+
++++++++++++++++++++++++++++++++++++++
+
 ==========
 617.7.0424
-----------
+==========
+---plan---
+Day:
+  [surf] practice left/right turn,left: go up to half-wave-wall, right: backside
+  [buy] check ocean&earth surf hat
+  [guitar] list song practice
+Night:
+  [studio] katatsuke
+--result--
 A:[surf]
 B:[tango] test old functions after re-install pi32
 C:
 
 ==========
 617.6.0423
-----------
-A:[tango]
+==========
+---plan---
+AM: 
+  [pi] install opencv3!!!
+PM:
   [course] CS231n: Convolutional Neural Networks for Visual Recognition [1/...]
+Night:
+  [buy] box*2
+--result--
+A:[tango]
 B:[workout]
 C:
 
+>>>>>>>
 ==========
 617.5.0422
-----------
-A:[tango] talk: rule base fix
-  [article]
-B:[language] coffee break french [21, weather]
-  [workout]
+==========
+---PLAN---
+Day: 
+  [pi] check why fail to install opencv 3
+  [article] Deep Visual-Semantic Alignments for Generating Image Descriptions [2/...]
+  [article] What a Deep Neural Network thinks about your #selfie [1/...]
+  [tango] talk: rule-based prototype fix
+Evening: 
+  [buy] george shoes
+  [buy] bucket hat
+TR: 
+  [language] coffee break french [21-23]
+--RESULT--
+A:
+B: [workout] 20xSU + 20xPU
 C:
-
->>>
+  
 ==========
 617.4.0421
 ----------
 A:[article] Andrej Karpathy: Breaking linear classifiers on ImageNet [2/2]
-  [article] Andrej Karpathy: The unreasonable effectiveness of RNNs [2/...]
-B:[tango] install pi32 [2/...]
-  [language] coffee break french [21, weather]
-  [workout] push-up 20x2, sit-up 20x2
-C:[studio] katatsuke masu
-  [buy] check o'neill surf hat
-  [buy] george shoes
+  [article] Andrej Karpathy: The unreasonable effectiveness of RNNs [2/2]
+  [article] Andrej Karpathy: Deep Visual-Semantic Alignments for Generating Image Descriptions [1/...]
+B:[tango] install pi32 -> fail in the same place.. [2/...]
+  [language] coffee break french [21~23, weather]
+  [workout] push-up 20x2
+C:[studio] katatsuke masu [2/...]
 
 ==========
 617.3.0420
