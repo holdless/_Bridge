@@ -42,6 +42,7 @@ C:
 ---plan---
 AM: 
   [pi] install opencv3!!!
+  [life] 郵局發票兌獎 (身分證)
 PM:
   [course] CS231n: Convolutional Neural Networks for Visual Recognition [1/...]
 Night:
@@ -62,6 +63,7 @@ Day:
   [article] Deep Visual-Semantic Alignments for Generating Image Descriptions [2/...]
   [article] What a Deep Neural Network thinks about your #selfie [1/...]
   [tango] talk: rule-based prototype fix
+  [life] seven 印發票
 Evening: 
   [buy] george shoes
   [buy] bucket hat
