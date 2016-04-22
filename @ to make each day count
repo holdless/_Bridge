@@ -46,6 +46,7 @@ PM:
   [course] CS231n: Convolutional Neural Networks for Visual Recognition [1/...]
 Night:
   [buy] box*2
+  [take] 書 木塊 包包
 --result--
 A:[tango]
 B:[workout]
@@ -64,6 +65,7 @@ Day:
 Evening: 
   [buy] george shoes
   [buy] bucket hat
+  [ask] frances' sis to sell wallet
 TR: 
   [language] coffee break french [21-23]
 --RESULT--
