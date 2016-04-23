@@ -1,0 +1,101 @@
+# 1213  <h264 & ffmpeg>
+cd /usr/src
+sudo git clone git://git.videolan.org/x264
+cd x264
+sudo ./configure --host=arm-unknown-linux-gnueabi --enable-static --disable-opencl
+sudo make
+sudo make install
+
+cd /usr/src
+sudo git clone git://source.ffmpeg.org/ffmpeg.git
+cd ffmpeg
+sudo ./configure --arch=armel --target-os=linux --enable-gpl --enable-libx264 --enable-nonfree
+sudo make
+sudo make install
+# 1214  <OpenCV>
+sudo apt-get update
+sudo apt-get upgrade
+
+sudo apt-get install libopencv-dev
+sudo apt-get install python-opencv
+sudo apt-get install opencv-doc
+# <RPi 2 -jessie: OpenGL error fix>
+sudo apt-get install libgl1-mesa-dri and then sudo reboot
+# <pi-camera: for OpenCV(python) to identify raspicam> 
+sudo apt-get install python-picamera
+# <python math-lib> 
+sudo apt-get install python-numpy
+# <cmake> 
+sudo apt-get install cmake
+# <wiringPi>
+git clone git://git.drogon.net/wiringPi
+cd wiringPi
+sudo ./build
+# <i2c> 
+sudo apt-get install i2c-tools
+# <telnet> 
+sudo apt-get install telnet
+# <text-editor>
+sudo apt-get install emacs
+sudo apt-get install kate
+# <audio>
+sudo apt-get install libasound2-dev
+sudo apt-get install espeak
+sudo apt-get install bison
+sudo apt-get install python-dev
+sudo apt-get install swig
+# <raspicam: for opencv(c++) recognise pi-cam>
+# (download file: http://www.uco.es/investiga/grupos/ava/node/40)
+sudo apt-get install unzip (617.3.0420)
+unzip raspicam-0.1.3
+cd raspicam-0.1.3
+mkdir build
+cd build
+sudo cmake ..
+sudo make
+sudo make install
+               sudo ldconfig
+# 1218  <sphinx>
+#sudo tar -xzvf sphinxbase-5prealpha.tar.gz
+#cd sphinxbase-5prealpha
+#sudo ./configure —enable-fixed
+#sudo make
+#sudo make install
+#
+#sudo tar -xzvf pocketsphinx-5prealpha.tar.gz
+#cd pocketsphinx-5prealpha
+#sudo ./configure
+#sudo make
+#sudo make install
+
+#1221 <google speech API related>
+sudo apt-get install flac
+sudo apt-get install python-pycurl
+# 1225 <SpeechRecognition /python & related>
+sudo apt-get install python-pyaudio
+sudo pip install SpeechRecognition (To quickly try it out, run python -m speech_recognition after installing)
+
+# 1226 <pyttsx (espeak tts API) /python>
+sudo pip install pyttsx
+# <google translate tts API related>
+sudo apt-get install mplayer
+# 1231 <install NLP tool NLTK for pos-tagging>
+sudo pip install -U nltk
+sudo python -m nltk.downloader -d /usr/share/nltk_data book
+
+# 2016
+# 0221 <pyhton Wifi module>
+sudo pip install wifi
+# 0229 <mjpg-streamer>
+cd /usr/src/
+#sudo mkdir mjpg-streamer
+#cd mjpg-streamer
+sudo git clone https://github.com/jacksonliam/mjpg-streamer.git
+sudo apt-get install libv4l-dev libjpeg8-dev imagemagick build-essential cmake subversion
+sudo apt-get autoremove --purge
+cd mjpg-streamer/mjpg-streamer-experimental
+sudo make
+
+# 0316 <OpenCV>
+sudo apt-get install libopencv-dev  
+#    (<—  install again (2.4.9), i don’t know why……………..)
