@@ -1,3 +1,18 @@
+Your time is limited, so don't waste it living someone else's life. 
+Don't be trapped by dogma - which is living with the results of other people's thinking. 
+Don't let the noise of other's opinions drown out your own inner voice. 
+And most important, have the courage to follow your heart and intuition. 
+They somehow already know what you truly want to become. 
+Everything else is secondary.
+              - Steve Jobs
+              
+Life is about courage and going into the unknown.
+
+It's what you do in the dark that puts you in the light.
+
+Practice makes perfect!
+
+********************
 recent topic groups:
 colombo:
   1) DNN for NLP: in a practice and classifying way
@@ -20,84 +35,90 @@ T:
   12) forecasting minefield & corporate it to DNN: it helps us to understand features and representations
 
 /////////////////////////////////////////////////////////////
+  [surf] practice left/right turn,left: go up to half-wave-wall, right: backside
+  [buy] check ocean&earth surf hat
+  [life] 郵局發票兌獎 (身分證)
+  [article] Deep Visual-Semantic Alignments for Generating Image Descriptions [2/...]
+  [buy] bucket hat
+  [ask] frances' sis to sell wallet
 
+/////////////////////////////////////////////////////////////
+==========
+618.1.0425
+==========
+am:
+  [workout] 2*20xPU
+  [life] seven 印發票
+  [article] What a Deep Neural Network thinks about your #selfie [1/...]
+pm:
+  [tango] talk: rule-based prototype fix
+ni:
+  [buy] george shoes
+  [tango] test old functions after re-install pi32
 ==========
 617.7.0424
 ==========
----plan---
-Day:
-  [surf] practice left/right turn,left: go up to half-wave-wall, right: backside
-  [buy] check ocean&earth surf hat
+A:
+B:
+  [pi] re-install pi (after opencv3 installed)
   [guitar] list song practice
-Night:
-  [studio] katatsuke
---result--
-A:[surf]
-B:[tango] test old functions after re-install pi32
+  [workout] 2*20xPU
 C:
+  [studio] katatsuke
 
 ==========
 617.6.0423
 ==========
----plan---
-AM: 
-  [pi] install opencv3!!!
-  [life] 郵局發票兌獎 (身分證)
-PM:
-  [course] CS231n: Convolutional Neural Networks for Visual Recognition [1/...]
-Night:
-  [buy] box*2
-  [take] 書 木塊 包包
---result--
-A:[tango]
-B:[workout]
+A:
+  [course] CS231n: Convolutional Neural Networks for Visual Recognition [1-1/15]
+B:
+  [workout] 2*20xPU
+  [tango] re-install pi and opencv3
 C:
+  [take] 書 木塊 包包
+  [buy] little boxes
 
->>>>>>>
 ==========
 617.5.0422
 ==========
 ---PLAN---
-Day: 
-  [pi] check why fail to install opencv 3
-  [article] Deep Visual-Semantic Alignments for Generating Image Descriptions [2/...]
-  [article] What a Deep Neural Network thinks about your #selfie [1/...]
-  [tango] talk: rule-based prototype fix
-  [life] seven 印發票
-Evening: 
-  [buy] george shoes
-  [buy] bucket hat
-  [ask] frances' sis to sell wallet
-TR: 
-  [language] coffee break french [21-23]
---RESULT--
-A:[article] Visualizing MNIST: An Exploration of Dimensionality Reduction [1/...]
-B:[workout] 20xSU + 20xPU
+A:
+  [article] Visualizing MNIST: An Exploration of Dimensionality Reduction [1/...]
+B:
+  [workout] 20xSU + 20xPU
   [pi] check why fail to install opencv 3
 C:
   
 ==========
 617.4.0421
 ----------
-A:[article] Andrej Karpathy: Breaking linear classifiers on ImageNet [2/2]
+A:
+  [article] Andrej Karpathy: Breaking linear classifiers on ImageNet [2/2]
   [article] Andrej Karpathy: The unreasonable effectiveness of RNNs [2/2]
   [article] Andrej Karpathy: Deep Visual-Semantic Alignments for Generating Image Descriptions [1/...]
-B:[tango] install pi32 -> fail in the same place.. [2/...]
+B:
+  [tango] install pi32 -> fail in the same place.. [2/...]
   [language] coffee break french [21~23, weather]
   [workout] push-up 20x2
-C:[studio] katatsuke masu [2/...]
+C:
+  [studio] katatsuke masu
 
 ==========
 617.3.0420
 ----------
-A:[surf] buttom turn too late
-B:[tango] re-install pi32 [1/...]
-C:[buy] earphone
+A:
+  [surf] buttom turn too late
+B:
+  [tango] re-install pi32 [1/...]
+C:
+  [buy] earphone
 
 ==========
 617.2.0419
 ----------
-A:[book] the signal & the noise [1/...]
+A:
+  [book] the signal & the noise [1/...]
   [article] Andrej Karpathy: Breaking linear classifiers on ImageNet [1/2]
-B:[language] coffee break french review 1~19
+B:
+  [language] coffee break french review 1~19
 C:
