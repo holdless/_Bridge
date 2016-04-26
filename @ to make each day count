@@ -1,34 +1,33 @@
-Your time is limited, so don't waste it living someone else's life. 
-Don't be trapped by dogma - which is living with the results of other people's thinking. 
-Don't let the noise of other's opinions drown out your own inner voice. 
-And most important, have the courage to follow your heart and intuition. 
-They somehow already know what you truly want to become. 
-Everything else is secondary.
-              - Steve Jobs
+" Your time is limited, so don't waste it living someone else's life. 
+  Don't be trapped by dogma - which is living with the results of other people's thinking. 
+  Don't let the noise of other's opinions drown out your own inner voice. 
+  And most important, have the courage to follow your heart and intuition. 
+  They somehow already know what you truly want to become. 
+  Everything else is secondary. "    - Steve Jobs
               
-Life is about courage and going into the unknown.
+" Life is about courage and going into the unknown. "
 
-It's what you do in the dark that puts you in the light.
+" It's what you do in the dark that puts you in the light. "
 
-Practice makes perfect!
+" Practice makes perfect! "
 
 ********************
 recent topic groups:
-colombo:
+Colombo:
   1) DNN for NLP: in a practice and classifying way
   2) Image captioning (including stanford youtube course)
-tango:
+Tango:
   3) fix streaming problem
   4) start inte main structure
   5) battery management study
-watt lab:
+Watt lab:
   6) SLAM and related courses (2x)
-feynman lab:
+Feynman lab:
   7) George price equation
-monet studio:
+Monet studio:
   8)list songs practice
   9)colin davidson study and mimic
-shakespeare club:
+Shakespeare club:
   10) 精準預測
   11) 可侵犯的尊嚴
 T:
@@ -36,35 +35,56 @@ T:
 
 /////////////////////////////////////////////////////////////
   [surf] practice left/right turn,left: go up to half-wave-wall, right: backside
-  [buy] check ocean&earth surf hat
-  [life] 郵局發票兌獎 (身分證)
   [article] Deep Visual-Semantic Alignments for Generating Image Descriptions [2/...]
-  [buy] bucket hat
+
+  [life] 郵局發票兌獎 (身分證) (due 5/4)
   [ask] frances' sis to sell wallet
+  [buy] george shoes
+  [buy] check ocean&earth surf hat
 
 /////////////////////////////////////////////////////////////
 ==========
-618.1.0425
+618.2.0426
 ==========
 am:
-  [workout] 2*20xPU
-  [life] seven 印發票
-  [article] What a Deep Neural Network thinks about your #selfie [1/...]
+  [article] Conv Nets: a modular perspective (Colah)[2/...]
+  [article] Understanding convolution (Colah)[2/...]
+  [article] What a Deep Neural Network thinks about your #selfie [2/...]
 pm:
   [tango] talk: rule-based prototype fix
-ni:
-  [buy] george shoes
-  [tango] test old functions after re-install pi32
+ev:
+  [pi] PyAudio problem
+  [pi] ghost/test procedures & files prepare
+  [pi] git
+
+A:
+B:
+C:
+  [workout] 1*20xPU +
+  [language] coffee break french [24~25]
+
+==========
+618.1.0425
+==========
+A:
+  [article] What a Deep Neural Network thinks about your #selfie [1/...]
+  [article] Conv Nets: a modular perspective (Colah)[1/...]
+  [article] Understanding convolution [1/...]
+B:
+  [tango] test old functions after re-install pi32 --> PyAudio problem appears, version before & after installing opencv3 different!!
+C:
+  [language] coffee break french [21~23]
+  [workout] 2*20xPU
+
 ==========
 617.7.0424
 ==========
 A:
+  [guitar] list song practice
 B:
   [pi] re-install pi (after opencv3 installed)
-  [guitar] list song practice
-  [workout] 2*20xPU
 C:
-  [studio] katatsuke
+  [workout] 2*20xPU
 
 ==========
 617.6.0423
@@ -72,26 +92,23 @@ C:
 A:
   [course] CS231n: Convolutional Neural Networks for Visual Recognition [1-1/15]
 B:
-  [workout] 2*20xPU
   [tango] re-install pi and opencv3
 C:
-  [take] 書 木塊 包包
-  [buy] little boxes
+  [workout] 2*20xPU
 
 ==========
 617.5.0422
 ==========
----PLAN---
 A:
   [article] Visualizing MNIST: An Exploration of Dimensionality Reduction [1/...]
 B:
-  [workout] 20xSU + 20xPU
   [pi] check why fail to install opencv 3
 C:
+  [workout] 20xSU + 20xPU
   
 ==========
 617.4.0421
-----------
+==========
 A:
   [article] Andrej Karpathy: Breaking linear classifiers on ImageNet [2/2]
   [article] Andrej Karpathy: The unreasonable effectiveness of RNNs [2/2]
@@ -105,7 +122,7 @@ C:
 
 ==========
 617.3.0420
-----------
+==========
 A:
   [surf] buttom turn too late
 B:
@@ -115,7 +132,7 @@ C:
 
 ==========
 617.2.0419
-----------
+==========
 A:
   [book] the signal & the noise [1/...]
   [article] Andrej Karpathy: Breaking linear classifiers on ImageNet [1/2]
