@@ -34,6 +34,12 @@ T:
   12) forecasting minefield & corporate it to DNN: it helps us to understand features and representations
 
 /////////////////////////////////////////////////////////////
+  [tango] talk: rule-based prototype fix
+
+  [pi] PyAudio problem
+  [pi] ghost/test procedures & files prepare
+  [pi] git
+
   [surf] practice left/right turn,left: go up to half-wave-wall, right: backside
   [article] Deep Visual-Semantic Alignments for Generating Image Descriptions [2/...]
 
@@ -46,30 +52,34 @@ T:
 ==========
 618.2.0426
 ==========
-am:
-  [article] Conv Nets: a modular perspective (Colah)[2/...]
-  [article] Understanding convolution (Colah)[2/...]
-  [article] What a Deep Neural Network thinks about your #selfie [2/...]
-pm:
-  [tango] talk: rule-based prototype fix
-ev:
-  [pi] PyAudio problem
-  [pi] ghost/test procedures & files prepare
-  [pi] git
-
 A:
+  [article] What a Deep Neural Network thinks about your #selfie [3/3]
+  [course]
 B:
+  [mac/win] terminal send mail with attachment
 C:
-  [workout] 1*20xPU +
+  [workout] 1*20xPU
+
+==========
+618.2.0426
+==========
+A:
+  [article] Conv Nets: a modular perspective (Colah)[2/2]
+  [article] Understanding convolution (Colah)[2/2]
+  [article] What a Deep Neural Network thinks about your #selfie [2/3]
+B:
+  [convNet] download youtub course
+C:
+  [workout] 3*20xPU
   [language] coffee break french [24~25]
 
 ==========
 618.1.0425
 ==========
 A:
-  [article] What a Deep Neural Network thinks about your #selfie [1/...]
-  [article] Conv Nets: a modular perspective (Colah)[1/...]
-  [article] Understanding convolution [1/...]
+  [article] What a Deep Neural Network thinks about your #selfie [1/3]
+  [article] Conv Nets: a modular perspective (Colah)[1/2]
+  [article] Understanding convolution [1/2]
 B:
   [tango] test old functions after re-install pi32 --> PyAudio problem appears, version before & after installing opencv3 different!!
 C:
@@ -100,7 +110,7 @@ C:
 617.5.0422
 ==========
 A:
-  [article] Visualizing MNIST: An Exploration of Dimensionality Reduction [1/...]
+  [article] Visualizing MNIST: An Exploration of Dimensionality Reduction [1/1]
 B:
   [pi] check why fail to install opencv 3
 C:
