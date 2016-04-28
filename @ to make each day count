@@ -50,15 +50,25 @@ T:
 
 /////////////////////////////////////////////////////////////
 ==========
-618.2.0426
+618.4.0428
+==========
+A:
+  [course] CS231n: lecture 2 [2/2]
+  [article]
+B:
+  [workout] 1*25xPU
+C:
+  [mac/win] applescript/automator send mail w/ attachment
+
+==========
+618.3.0427
 ==========
 A:
   [article] What a Deep Neural Network thinks about your #selfie [3/3]
-  [course]
+  [course] CS231n: lecture 2 [1/2]
 B:
-  [mac/win] terminal send mail with attachment
+  [workout] 2*20xPU
 C:
-  [workout] 1*20xPU
 
 ==========
 618.2.0426
@@ -68,10 +78,10 @@ A:
   [article] Understanding convolution (Colah)[2/2]
   [article] What a Deep Neural Network thinks about your #selfie [2/3]
 B:
-  [convNet] download youtub course
-C:
   [workout] 3*20xPU
   [language] coffee break french [24~25]
+C:
+  [convNet] download youtub course
 
 ==========
 618.1.0425
@@ -81,10 +91,10 @@ A:
   [article] Conv Nets: a modular perspective (Colah)[1/2]
   [article] Understanding convolution [1/2]
 B:
-  [tango] test old functions after re-install pi32 --> PyAudio problem appears, version before & after installing opencv3 different!!
-C:
   [language] coffee break french [21~23]
   [workout] 2*20xPU
+C:
+  [tango] test old functions after re-install pi32 --> PyAudio problem appears, version before & after installing opencv3 different!!
 
 ==========
 617.7.0424
@@ -92,9 +102,9 @@ C:
 A:
   [guitar] list song practice
 B:
-  [pi] re-install pi (after opencv3 installed)
-C:
   [workout] 2*20xPU
+C:
+  [pi] re-install pi (after opencv3 installed)
 
 ==========
 617.6.0423
@@ -102,9 +112,9 @@ C:
 A:
   [course] CS231n: Convolutional Neural Networks for Visual Recognition [1-1/15]
 B:
-  [tango] re-install pi and opencv3
-C:
   [workout] 2*20xPU
+C:
+  [tango] re-install pi and opencv3
 
 ==========
 617.5.0422
@@ -112,9 +122,9 @@ C:
 A:
   [article] Visualizing MNIST: An Exploration of Dimensionality Reduction [1/1]
 B:
-  [pi] check why fail to install opencv 3
-C:
   [workout] 20xSU + 20xPU
+C:
+  [pi] check why fail to install opencv 3
   
 ==========
 617.4.0421
@@ -124,11 +134,10 @@ A:
   [article] Andrej Karpathy: The unreasonable effectiveness of RNNs [2/2]
   [article] Andrej Karpathy: Deep Visual-Semantic Alignments for Generating Image Descriptions [1/...]
 B:
-  [tango] install pi32 -> fail in the same place.. [2/...]
   [language] coffee break french [21~23, weather]
   [workout] push-up 20x2
 C:
-  [studio] katatsuke masu
+  [tango] install pi32 -> fail in the same place.. [2/...]
 
 ==========
 617.3.0420
@@ -136,9 +145,8 @@ C:
 A:
   [surf] buttom turn too late
 B:
-  [tango] re-install pi32 [1/...]
 C:
-  [buy] earphone
+  [tango] re-install pi32 [1/...]
 
 ==========
 617.2.0419
