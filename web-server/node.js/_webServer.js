@@ -1,5 +1,5 @@
-var net = require('net');
-var webServer = require('http');
+var webServer = require('http').createServer(handler);
+var io = require('socket.io')(webServer);
 var fs = require('fs');
 var url = require('url');
 
@@ -10,8 +10,10 @@ var msgType = 0;
 var showDir = 0;
 // for authentication procedure state
 
-// Create a server
-webServer.createServer( function (request, response) {  
+webServer.listen(port);
+
+// http server handler
+function handler(request, response) {  
     // Parse the request containing file name
     var fileName = url.parse(request.url).pathname;
 	// Parse the request whole message
@@ -53,32 +55,6 @@ webServer.createServer( function (request, response) {
         filePath = "/images/";
         formatTag = "image/png";
 		msgType = 1; // image
-    } 
-	// remote control instruction
-	///// 628.4.0707 temp
-/*	else if (msg.endsWith("left=")) {
-			msgType = 0;
-			filePath = "";
-			formatTag = "text/html";
-			msgType = 0; // normal
-			fileName = "/a.html";
-	}/////////////*/
-    else if (msg.startsWith("/myCmd")) {
-		msgType = 2; // cmd
-        filePath = "";
-        formatTag = "text/html";
-		if (msg.endsWith("up")) {
-			showDir = 1;
-		} else if (msg.endsWith("down")) {
-			showDir = 2;
-		} else if (msg.endsWith("right")) {
-			showDir = 3
-		} else if (msg.endsWith("left")) {
-			showDir = 4;
-		} else {
-			showDir = 0;
-			console.log("wrong dir cmd!!"); // this shows on srv side only
-		}
     } 
 	// server-sent events
     else if (msg.endsWith("srvSent")) {
@@ -176,7 +152,21 @@ webServer.createServer( function (request, response) {
 			response.end();
 		}); 
 	}   
-}).listen(port);
+}
 
 // Console will print the message
 console.log('Server running at http://127.0.0.1:',port);
+
+io.on('connection', function(socket) {
+    // add code here
+    socket.emit('foo', {name: 'bar'}); // send
+    socket.on('baz', function(data) {
+        console.log(data); // receive
+    });
+    // receive dir cmd
+    socket.on('cmd-dir', function(data) {
+        console.log(data.cmd);
+        socket.emit('cmd-dir-confirmed', data);
+    });
+    
+});
