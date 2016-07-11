@@ -14,24 +14,38 @@
 		</style>
 	</head>
 
+    <body>
+	    <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io.connect();
+
+            socket.on('foo', function(data) {
+                alert(data.name);
+            });
+            socket.on('cmd-dir-confirmed', function(data) {
+                changeUp(data.cmd);
+            });
+            
+            socket.emit('baz');
+        </script>
+    </body>    
 	<body onload="startGame()">
 
-<!-- 		<h2>image from other port</h2>
-		<img src="http://localhost:8089/cdsem.jpg" alt="CD-SEM" style="width:317px;height:317px;">
- -->
- 		<h3>image from local</h3>
-		<img src="cdsem.jpg" alt="CD-SEM" style="width:304px;height:228px;">
+        
+ 		<h2> from pi-cam</h2>
+		<img src="http://192.168.1.108:8080/?action=stream" alt="picam-Quality=10" style="width:640px;height:480px;">
+
+ 		<!--h3>image from local</h3>
+		<img src="cdsem.jpg" alt="CD-SEM" style="width:304px;height:228px;"-->
 
 
 		<script>
 			var myGamePiece;
-
 			function startGame() 
 			{
 				myGamePiece = new component(30, 30, "smiley.gif", 10, 120, "image");
 				myGameArea.start();
 			}
-
 			var myGameArea = 
 			{
 				canvas : document.createElement("canvas"),
@@ -53,7 +67,6 @@
 					clearInterval(this.interval);
 				}
 			}
-
 			function component(width, height, color, x, y, type) 
 			{
 				this.type = type;
@@ -90,7 +103,6 @@
 					this.y += this.speedY;        
 				}
 			}
-
 			function updateGameArea() 
 			{
 				myGameArea.clear();
@@ -100,27 +112,26 @@
 			
 			
 			/// button action
-
 			function moveup() 
 			{
 				myGamePiece.speedY = -1; 
+				socket.emit('cmd-dir', {cmd: 'up'});
 			}
-
 			function movedown() 
 			{
 				myGamePiece.speedY = 1; 
+				socket.emit('cmd-dir', {cmd: 'down'});
 			}
-
 			function moveleft() 
 			{
 				myGamePiece.speedX = -1; 
+				socket.emit('cmd-dir', {cmd: 'left'});
 			}
-
 			function moveright() 
 			{
 				myGamePiece.speedX = 1; 
+				socket.emit('cmd-dir', {cmd: 'right'});
 			}
-
 			function clearmove() 
 			{
 				myGamePiece.speedX = 0; 
@@ -129,10 +140,9 @@
 				x.value = "myCmd.stop";
 				document.getElementById("myForm").submit();
 			}
-
-			function changeUp() 
+			function changeUp(sDir) 
 			{
-				var x = document.getElementById("up");
+				var x = document.getElementById(sDir);
 				x.style.fontSize = "25px";           
 				x.style.color = "red"; 
 			}
@@ -141,18 +151,13 @@
 			function passwdWindow() {
 				window.open("b.html", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=400");
 			}
-
 		</script>
-		<button onclick="passwdWindow()"> click here </button>
-		<form id="myForm" method="get">
-			<button type="submit" name="left"> click here 2 </button>
 			<div style="text-align:center;width:480px;">
-				<button id="up" formaction="myCmd.up" onclick="changeUp()" onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button><br><br>
-				<button id="left" formaction="myCmd.left" onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
-				<button id="right" formaction="myCmd.right" onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button><br><br>
-				<button id="down" formaction="myCmd.down" onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>
+				<button id="up" onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button><br><br>
+				<button id="left" onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
+				<button id="right" onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button><br><br>
+				<button id="down" onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>
 			</div>
-		</form>
 		
 		<!-- ------------------------------------------------------------------------ -->
 		<!-- this block is about how to get update info from server, very important!! -->
