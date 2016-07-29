@@ -1,5 +1,6 @@
 sudo apt-get update
-sudo apt-get dist-upgrade -y
+#sudo apt-get dist-upgrade -y
+sudo apt-get upgrade -y
 
 # 建置與編譯所需工具：
 sudo apt-get install build-essential gcc cmake pkg-config
