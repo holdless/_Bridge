@@ -9,10 +9,10 @@ cd mjpg-streamer/mjpg-streamer-experimental
 sudo nano CMakeLists.txt
 # mark down "add_subdirectory(plugins/input_opencv)"
 
-mkdir _build
+sudo mkdir _build
 cd _build
-cmake ..
-make
+sudo cmake ..
+sudo make
 sudo make install
 
 # move .exe and input/output.so file to mjpg-streamer-experimental directory
