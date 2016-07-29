@@ -18,7 +18,7 @@ sudo make install
 # move .exe and input/output.so file to mjpg-streamer-experimental directory
 # cd to mjpg-streamer-experimental folder...
 cd ..
-sudo cp _build/mjpg-streamer mjpg-streamer
+sudo cp _build/mjpg_streamer mjpg_streamer
 #sudo cp _build/plugins/input_file/input_file.so input_file.so
 #sudo cp _build/plugins/input_http/input_http.so input_http.so
 #sudo cp _build/plugins/input_ptp2/input_ptp2.so input_ptp2.so
