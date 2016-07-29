@@ -6,7 +6,7 @@ cd raspicam-0.1.3
 ## if MMAL RGB/BGR bug has been fixed (RPi after 2016/7 version)
 cd src/private
 sudo nano private_impl.cpp
-
+# L750~730
 # int Private_Impl::convertFormat ( RASPICAM_FORMAT fmt ) {
 #  switch ( fmt ) {
 #    case RASPICAM_FORMAT_RGB:
