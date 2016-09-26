@@ -11,14 +11,14 @@ using namespace cv;
 void rgb2bgr(Mat& image) 
 {
 	Mat new_img(image.rows, image.cols, CV_8UC3);
-    Mat channel[3], new_channel[3];
+	Mat channel[3], new_channel[3];
 
     // The actual splitting.
-    split(image, channel);
-    split(new_img, new_channel);
+	split(image, channel);
+	split(new_img, new_channel);
 
 	// 640.1.0926 hiroshi: test for re-combine channels:: BGR2RGB
-    split(new_img, new_channel);
+	split(new_img, new_channel);
 	new_channel[0] = channel[2];
 	new_channel[1] = channel[1];
 	new_channel[2] = channel[0];
