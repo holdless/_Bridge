@@ -24,7 +24,7 @@ void rgb2bgr(Mat& image)
 	new_channel[2] = channel[0];
 	merge(new_channel, 3, image);
 }
-
+ 
 int _tmain(int argc, _TCHAR* argv[])
 {
     Mat image;
