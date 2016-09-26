@@ -1,3 +1,6 @@
+// 640.1.0926 @hsinchu
+// function for mjpg_streamer -> opencv, rgb2bgr
+
 #include "stdafx.h"
 #include "opencv2/opencv.hpp"
 
