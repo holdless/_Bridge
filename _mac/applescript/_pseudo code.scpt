@@ -100,7 +100,7 @@ on show_folder_tree(theCurrentPath)
 end show_folder_tree
 
 on create_new_note_in_notes(_folderName, _title, _body)
-	set noteHTMLText to "<pre style=\"font-family:Helvetica,sans-serif;\">" & (the clipboard as Unicode text) & "</pre>
+	set noteHTMLText to "<pre style=\"font-family:Helvetica,sans-serif;\">" & (the clipboard as Unicode text) & "</pre>"
 	tell application "Notes"
 		activate
 		set thisAccountName to my getNameOfTargetAccount("Choose an account:")
