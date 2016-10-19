@@ -8,6 +8,7 @@ repeat
 		theTargetPath = parse_info_in_content(thisMsg, targetPath)
 		theMailAddress = parse_info_in_content(thisMsg, mailAddress)
 		theFolder = parse_info_in_content(thisMsg, folderPath)
+		theTitle = parse_info_in_content(thisMsg, title)
 		theBody = parse_info_in_content(thisMsg, body)
 		theTag = parse_info_in_content(thisMsg, tag)
 		
@@ -17,12 +18,16 @@ repeat
 			copy file the currentPath to theTargetpath
 		else if theKey is "[file mail]"
 			send_mail_with_attachment(theCurrentPath, theHostAddress, theTargetAddress)
+		else if theKey is "[folder tree]"
+			show_folder_tree(theCurrentPath)
 		else if theKey is "[notes]" then
 			create_new_note_in_notes(theFolder, theBody)
 		else if theKey is "[evernotes]" then
 			create_new_note_in_evernote(theFolder, theBody)
 		end if
 	end repeat
+	
+	delay 30
 end repeat
 
 
@@ -87,31 +92,65 @@ on send_mail_with_attachment(_path, _fromAddress, _toAddress)
 	end tell
 end send_mail_with_attachment
 
-on create_new_note_in_notes(_folderName, _body)
+on show_folder_tree(theCurrentPath)
+	tell application "Finder"
+    		set theFileList to name of every file of entire contents of theCurrentPath
+		log theFileList
+  	end tell
+end show_folder_tree
+
+on create_new_note_in_notes(_folderName, _title, _body)
+	set noteHTMLText to "<pre style=\"font-family:Helvetica,sans-serif;\">" & (the clipboard as Unicode text) & "</pre>
+	tell application "Notes"
+		activate
+		set thisAccountName to my getNameOfTargetAccount("Choose an account:")
+		tell account thisAccountName
+			if not (exists folder _folderName) then
+				make new folder with properties {name:_folderName}
+			end if
+			make new note at folder _folderName with properties {name:_title, body:noteHTMLText}
+		end tell
+	end tell
 end create_new_note_in_notes
 
 on create_new_note_in_evernote(_folderName, _body)
 end create_new_note_in_evernote
 
+on getNameOfTargetAccount(thisPrompt)
+	tell application "Notes"
+		if the (count of accounts) is greater than 1 then
+			set theseAccountNames to the name of every account
+			set thisAccountName to (choose from list theseAccountNames with prompt thisPrompt)
+			if thisAccountName is false then error number -128
+			set thisAccountName to thisAccountName as string
+		else
+			set thisAccountName to the name of account 1
+		end if
+		return thisAccountName
+	end tell
+end getNameOfTargetAccount
+
 ---------------
 -- [file move/copy] 
---	<cpath>"file path"</cpath>
--- 	<tpath>"target path"</tpath>
+--	<currentPath>"file path"</currentPath>
+-- 	<targetPath>"target path"</targetPath>
 
 -- [file mail]
---	<cpath>"file path"</cpath>
---	<mail>"mail address"</mail>
+--	<currentPath>"file path"</currentPath>
+--	<mailAddress>"mail address"</mailAddress>
 
 -- [folder tree]
---	<cpath>"file path"</cpath>
+--	<currentPath>"file path"</currentPath>
 
 ---------------
 -- [note] 643.3.1019 i'm title
 -- 	<folder>_remote_add</folder>
+-- 	<title> i title </title>
 -- 	<body> balidsalfj </body>
 
 ---------------
 -- [evernotes] 643.3.1019 i'm title
 -- 	<folder>_remote_add</folder>
+-- 	<title> i title </title>
 -- 	<body> balidsalfj </body>
 -- 	<tag>pi,c/c++,matlab,...</tag>
