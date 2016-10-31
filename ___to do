@@ -1,0 +1,98 @@
+##### Hsinchu ######
+
+T
+	hybrid image (super-resolution)
+	true overlay investigation
+		.proposal
+		.tunnel-drive fitting
+	sparse statistic data -> dense(image) result study
+DL
+	tensorflow:
+		.tutorials & examples study
+		.python numpy practice
+	hardware survey & make decision (wait for tensorflow test)
+RFL
+	reinforcement learning et example
+		.nctu dynamic programming
+		.Markov decision process
+		.manifold learning
+Serveillance
+	rpi motion detection:
+		.opencv motion detection sample
+			.. image stablizatiion algo for motion detection from moving
+				... accelerometers, gyros survey
+		.noir cam survey
+Tango
+	talk/NLP: 
+		.study:
+			..解读textCNN
+				http://lan2720.github.io/2016/06/01/tensorflow%E4%B9%8B%E8%B7%AF-%E8%A7%A3%E8%AF%BBtextCNN/
+			..UNDERSTANDING CONVOLUTIONAL NEURAL NETWORKS FOR NLP
+				http://www.wildml.com/2015/11/understanding-convolutional-neural-networks-for-nlp/
+	remote:
+		.browser UI design:
+			..revise for Tango remote control specific.
+			..mobile UI navigation button survey
+	see:
+		.gender rec
+	autopilot:
+		SLAM, introduction
+Linux/C++
+	linux shell programming 給值 算術 邏輯
+	DBG
+Jarvis
+	applescript:
+		1) username-password mechanism
+		2) JXA survey 
+		3)(ask safari to work for me by applescript, ask shell to work for me)
+Android
+	install android studio & hello world
+-------------------------
+Review:
+	collaborative filtering
+	generative vs descriminative
+	.CS231N review
+	.word embedding
+	.hinton's assignment 2~
+Lectures & learn:
+	DeepLearn:	
+		.t-sne
+		.CS224D
+	nctu-algorthms: 
+		.graphs
+		.divide and conquer
+		.greedy
+	4-color problem
+		
+
+
+
+##### Taipei ######
+
+Cube
+	NRF24L01+ distance meas. test
+Jarvis
+	applescript:
+		3) username-password mechanism
+		4) JXA examples/test
+Tango
+	see/remote:
+		.integrate thread & face-det
+	see:
+		.gender rec dataset prepare
+Serveillance
+	rpi send mail
+		.send by python
+		.send attached
+Android
+	TBD
+
+DL
+	tensorflow: 
+		.examples try
+----------------------
+TH
+	robot, portal, FB business scope
+	life, value, accumulated, unrequited
+	home, baby surveillance. jarvis, tango, combination
+	remote data collection, for DL server training, this mechanism
