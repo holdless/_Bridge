@@ -198,10 +198,10 @@
 			}
 		</script>
 			<div style="text-align:center;width:480px;">
-				<button id="up" 		onmousedown="moveup()" 	onmouseup="clearmove()" ontouchstart="moveup()">UP</button><br><br>
-				<button id="left" 	onmousedown="moveleft()" 	onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
-				<button id="right" 	onmousedown="moveright()" 	onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button><br><br>
-				<button id="down" 	onmousedown="movedown()" 	onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>
+				<button class="button" id="up" 		onmousedown="moveup()" 	onmouseup="clearmove()" ontouchstart="moveup()">UP</button><br><br>
+				<button class="button" id="left" 	onmousedown="moveleft()" 	onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
+				<button class="button" id="right" 	onmousedown="moveright()" 	onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button><br><br>
+				<button class="button disabled" id="down" 	onmousedown="movedown()" 	onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>
 			</div>
 		
 		<!-- ------------------------------------------------------------------------ -->
@@ -237,24 +237,45 @@
 		<!------------------------->
 
 		<style>
-		h1 
-		{
-			color:green
-		}
-		div.relative 
-		{
-			position: relative;
-			left: 30px;
-			top: 20px;
-			border: 3px solid #73AD21;
-		}
-		div.margin 
-		{
-			margin-top: 0px;
-			margin-bottom: 0px;
-			margin-right: 900px;
-			margin-left: 0px;
-		}
+			h1 {
+				color:green
+			}
+			div.relative {
+				position: relative;
+				left: 30px;
+				top: 20px;
+				border: 3px solid #73AD21;
+			}
+			div.margin {
+				margin-top: 0px;
+				margin-bottom: 0px;
+				margin-right: 900px;
+				margin-left: 0px;
+			}
+			// 647.2.1115 hiroshi: button style
+			.button {
+				background-color: #4CAF50; /* Green */
+//				background-color: #f44336; /* Red */
+//				background-color: #e7e7e7; /* gray */
+//				background-color: #555555; /* black */
+				border: 2px solid #000000; /* Green */;
+				border-radius: 8px;
+				color: white;
+				padding: 10px 15px;
+				//width: px,%
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 10px;
+				margin: 4px 2px;
+				cursor: pointer;
+
+				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+			}
+			.disabled {
+				opacity: 0.6;
+				cursor: not-allowed;
+			}		
 		</style>
 
 		<!-- <p>The component constructor uses the built-in image object to draw images onto the canvas.</p> -->
