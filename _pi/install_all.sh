@@ -1,12 +1,12 @@
 #---------------------------
-# step.1: MANUALLY DOWNLOAD first!!!
+# step.0: MANUALLY DOWNLOAD first!!!
 #---------------------------
 # <Raspicam>
 #   (download file: http://www.uco.es/investiga/grupos/ava/node/40)
 
-#-----------
-# init RPi 
-#-----------
+#------------------
+# step.1: init RPi 
+#------------------
 sudo rpi-update
 #reboot
 # <RPi 2 -jessie: OpenGL error fix>
@@ -20,7 +20,7 @@ reboot
 # //test opencv face-rec / obj-rec
 
 #--------------------
-# step.2: apt-get/pip 
+# step.3: apt-get/pip 
 #--------------------
 # <codeblocks>
 sudo apt-get install codeblocks
@@ -65,7 +65,7 @@ sudo pip install wifi
 reboot
 
 #--------------------------------
-# step.3: clone & install / make
+# step.4: clone & install / make
 #--------------------------------
 # <node.js>
 sudo apt-get remove nodejs
@@ -161,9 +161,9 @@ sudo cp _build/plugins/output_http/output_http.so output_http.so
 npm install socket.io #node.js
 
 reboot
-##################
-# modify setting #
-##################
+#------------------------
+# step.5: modify setting 
+#------------------------
 # <fixed IP setting>
 interface wlan0 # or etho for wired connection
 static ip_address=192.168.1.110
