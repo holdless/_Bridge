@@ -1,5 +1,5 @@
 #---------------------------
-# MANUALLY DOWNLOAD first!!!
+# step.1: MANUALLY DOWNLOAD first!!!
 #---------------------------
 # <Raspicam>
 #   (download file: http://www.uco.es/investiga/grupos/ava/node/40)
@@ -14,13 +14,14 @@ sudo rpi-update
 reboot
 
 #---------------------------------
-# <OpenCV-3.2.0 + contrib (dnn)>
+# step.2: OpenCV-3.2.0 + contrib (dnn)
 #---------------------------------
 #. install_opencv_dnn.sh
+# //test opencv face-rec / obj-rec
 
-#----------------
-# apt-get/pip 
-#----------------
+#--------------------
+# step.2: apt-get/pip 
+#--------------------
 # <codeblocks>
 sudo apt-get install codeblocks
 
@@ -46,10 +47,10 @@ sudo apt-get install flac python-pycurl
 # <SpeechRecognition /python & related>
 sudo apt-get install python-pyaudio
 sudo pip install SpeechRecognition 
-# (To quickly try it out, run python -m speech_recognition after installing)
-#<fix bug: SpeechRecognition can’t work>
-# (this problem is due to in the new version of SpeechRecognition3.4.x, it requires new version of PyAudio (0.2.9), 
-# and if you only use: sudo pip pyaudio, it’ll tell you “Requirement already satisfied…”, so we need to add following “ --upgrade")
+# //(To quickly try it out, run python -m speech_recognition after installing)
+# //<fix bug: SpeechRecognition can’t work>
+# //(this problem is due to in the new version of SpeechRecognition3.4.x, it requires new version of PyAudio (0.2.9), 
+# //and if you only use: sudo pip pyaudio, it’ll tell you “Requirement already satisfied…”, so we need to add following “ --upgrade")
 sudo pip install pyaudio --upgrade
 
 # <pyttsx (espeak tts API) /python>
@@ -63,21 +64,18 @@ sudo pip install wifi
 
 reboot
 
-#----------------------
-# download & install 
-#----------------------
+#--------------------------------
+# step.3: clone & install / make
+#--------------------------------
 # <node.js>
 sudo apt-get remove nodejs
 cd /opt
 sudo wget http://node-arm.herokuapp.com/node_latest_armhf.deb
 sudo dpkg -i node_latest_armhf.deb
-# you can test this by:
+# //you can test this by:
 #sudo node -v
 #sudo npm -v
 
-#-------
-# make 
-#------- 
 # <h264 & ffmpeg>
 cd /opt
 sudo git clone git://git.videolan.org/x264
