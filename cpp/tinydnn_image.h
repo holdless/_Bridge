@@ -37,8 +37,8 @@ struct MatData {
 class TinyDnnImage {
 public:
 	TinyDnnImage(	char* path,
-		     	//	int colorType,
-			bool isSingleFile) {
+	 		     	//	int colorType,
+					bool isSingleFile) {
 
 		if (isSingleFile)
 			convert_image(path);
