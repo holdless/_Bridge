@@ -37,8 +37,8 @@ struct MatData {
 class TinyDnnImage {
 public:
 	TinyDnnImage(	char* path,
-				//	int colorType,
-					bool isSingleFile) {
+		     	//	int colorType,
+			bool isSingleFile) {
 
 		if (isSingleFile)
 			convert_image(path);
@@ -47,7 +47,7 @@ public:
 	}
 
 	VectorData getVecData() {
-			return _vecData;
+		return _vecData;
 	}
 
 	vector<vec_t> getVecData(char* type) {
