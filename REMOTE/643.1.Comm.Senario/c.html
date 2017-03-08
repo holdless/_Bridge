@@ -117,6 +117,7 @@
 			}
 			
 			/// keyboard action
+			var bWait=false; // 2017.3.8 hiroshi: drop freq. for sending cmd
 			document.onkeydown = function(evt) {
 				evt = evt || window.event;
 				switch (evt.keyCode) {
@@ -133,6 +134,9 @@
 						movedown();
 						break;
 				}
+				// 2017.3.8 hiroshi: drop freq. for sending cmd
+				bWait=true;
+				window.setTimeout("bWait=false;",300);
 			};
 			
 			document.onkeyup = function(evt) {
