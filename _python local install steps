@@ -1,3 +1,15 @@
 1) download .whl file(s)
 2) cd D:\Python27\Script
-3) pip install --no-index --find-links <whl(s)> (看少什麼就download什麼)
+3) pip install <target you want to install(whl)> --no-index --find-links <whl(s)> (看少什麼就download什麼)
+
+matplotlib:
+pip install matplotlib-2.1.0-cp27-cp27m-win_amd64.whl 
+--no-index --find-links
+urllib3-1.22-py2.py3-none-any.whl
+backports.functools_lru_cache-1.4-py2.py3-none-any.whl
+six-1.11.0-py2.py3-none-any.whl
+cycler-0.10.0-py2.py3-none-any.whl
+python_dateutil-2.6.1-py2.py3-none-any.whl
+pyparsing-2.2.0-py2.py3-none-any.whl
+
+
