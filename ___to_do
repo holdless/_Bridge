@@ -1,4 +1,44 @@
 ##### Hsinchu ######
+DL
+	tensorflow:
+		.MNIST examples study + custom data
+		.pigeon rec/det
+		.defect ADC (compare with HoG classifier)
+	hardware survey & make decision
+	by iMac or buy Screen or buy Linux computer
+RL
+	reinforcement learning et example
+	lectures
+Tango
+	remote:
+		.browser UI design:
+			..revise for Tango remote control specific.
+			..mobile UI navigation button survey
+			..with android
+Serveillance
+	rpi send mail
+		.send by python
+		.send attached
+Linux/C++
+	linux shell programming 給值 算術 邏輯
+	DBG
+Jarvis
+	applescript:
+		1) username-password mechanism
+		2) JXA survey 
+		3)(ask safari to work for me by applescript, ask shell to work for me)
+-------------------------
+Review:
+	collaborative filtering
+	generative vs descriminative
+Lectures & learn:
+	DeepLearn:	
+		.t-sne
+
+
+
+##### BACKUP ######
+##### Hsinchu ######
 
 T
 	hybrid image (super-resolution)
@@ -90,9 +130,3 @@ Android
 DL
 	tensorflow: 
 		.examples try
-----------------------
-TH
-	robot, portal, FB business scope
-	life, value, accumulated, unrequited
-	home, baby surveillance. jarvis, tango, combination
-	remote data collection, for DL server training, this mechanism
