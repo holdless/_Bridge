@@ -1,0 +1,74 @@
+Sub compare_Click()
+Sheets("op.no + tool").Activate
+
+Range("A1", Range("D1").End(xlDown)).Select
+Dim dataTable As Variant, rows As Integer, i As Integer
+bottomRow = Range("D1").End(xlDown).Row
+
+opCol = 2
+toolCol = 4
+
+rawData = Sheets("op.no + tool").Range("A1", Range("D2").End(xlDown)).Value
+Sheets("tool list").Activate
+toolList = Sheets("tool list").Range("A1", Range("A1").End(xlDown)).Value
+toolCnt = Range("A1").End(xlDown).Row
+
+'//count how many operation no. in this table
+opCnt = 1
+
+For i = 3 To bottomRow
+    If rawData(i, opCol) <> rawData(i - 1, opCol) Then
+        opCnt = opCnt + 1
+    End If
+Next i
+
+Dim opNoStartIndex() As Integer, opNoEndIndex() As Integer, opNo() As String
+ReDim opNoStartIndex(opCnt)
+ReDim opNoEndIndex(opCnt)
+ReDim opNo(opCnt)
+
+opNoStartIndex(1) = 2
+opNo(1) = rawData(2, opCol)
+
+cnt = 1
+For i = 3 To bottomRow
+    If rawData(i, opCol) <> rawData(i - 1, opCol) Then
+        opNoEndIndex(cnt) = i - 1
+        cnt = cnt + 1
+        opNoStartIndex(cnt) = i
+        opNo(cnt) = rawData(i, opCol)
+    End If
+Next i
+
+opNoEndIndex(opCnt) = bottomRow
+
+Sheets("op.no + tool").Activate
+ 
+Worksheets.Add
+Worksheets(1).Name = "opNo to toolList"
+ 
+Sheets("opNo to toolList").Activate
+Range(Cells(1, 2), Cells(1, toolCnt + 1)) = toolList
+For i = 1 To opCnt
+    Cells(i + 1, 1).NumberFormat = "@"
+    Cells(i + 1, 1).Value = opNo(i)
+Next i
+
+Range(Cells(2, 2), Cells(opCnt + 1, toolCnt + 1)) = 0
+ 
+For i = 1 To opCnt
+    For j = 1 To toolCnt
+        For k = opNoStartIndex(i) To opNoEndIndex(i)
+            If toolList(j, 1) = rawData(k, toolCol) Then
+                 'MsgBox opNo(i) & ": " & toolList(j, 1)
+                 Cells(i + 1, j + 1) = 1
+                 Exit For
+            End If
+        Next k
+    Next j
+Next i
+
+Erase opNoStartIndex
+Erase opNoEndIndex
+Erase opNo
+End Sub
