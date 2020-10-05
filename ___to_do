@@ -1,11 +1,7 @@
 ##### Hsinchu ######
 DL
 	tensorflow:
-		.MNIST examples study + custom data
 		.pigeon rec/det
-		.defect ADC (compare with HoG classifier)
-	hardware survey & make decision
-	by iMac or buy Screen or buy Linux computer
 RL
 	reinforcement learning et example
 	lectures
@@ -14,7 +10,6 @@ Tango
 		.browser UI design:
 			..revise for Tango remote control specific.
 			..mobile UI navigation button survey
-			..with android
 Serveillance
 	rpi send mail
 		.send by python
@@ -31,14 +26,7 @@ Jarvis
 Review:
 	collaborative filtering
 	generative vs descriminative
-Lectures & learn:
-	DeepLearn:	
-		.t-sne
 
-
-
-##### BACKUP ######
-##### Hsinchu ######
 
 T
 	hybrid image (super-resolution)
@@ -46,11 +34,6 @@ T
 		.proposal
 		.tunnel-drive fitting
 	sparse statistic data -> dense(image) result study
-DL
-	tensorflow:
-		.tutorials & examples study
-		.python numpy practice
-	hardware survey & make decision (wait for tensorflow test)
 RFL
 	reinforcement learning et example
 		.nctu dynamic programming
@@ -85,19 +68,12 @@ Jarvis
 		1) username-password mechanism
 		2) JXA survey 
 		3)(ask safari to work for me by applescript, ask shell to work for me)
-Android
-	install android studio & hello world
 -------------------------
 Review:
 	collaborative filtering
 	generative vs descriminative
-	.CS231N review
-	.word embedding
 	.hinton's assignment 2~
 Lectures & learn:
-	DeepLearn:	
-		.t-sne
-		.CS224D
 	nctu-algorthms: 
 		.graphs
 		.divide and conquer
@@ -107,26 +83,6 @@ Lectures & learn:
 
 
 
-##### Taipei ###### 
 
 Cube
 	NRF24L01+ distance meas. test
-Jarvis
-	applescript:
-		3) username-password mechanism
-		4) JXA examples/test
-Tango
-	see/remote:
-		.integrate thread & face-det
-	see:
-		.gender rec dataset prepare
-Serveillance
-	rpi send mail
-		.send by python
-		.send attached
-Android
-	TBD
-
-DL
-	tensorflow: 
-		.examples try
