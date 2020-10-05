@@ -1,0 +1,46 @@
+loadImage
+recipe
+  loadRecipe
+  saveRecipe
+preference
+  setImagePath
+  setRecipePath
+help
+-------------------
+Direction:
+  radiobutton_x, radiobutton_y
+SEM setting:
+  edit_fov
+Image Calibration:
+  edit_nominalPitch
+  edit_pitchRepeatCount
+  pushbutton_calibratePitch
+  text_semPitch
+Meas.Area Setting:
+  edit_measPoints
+  edit_sumLines
+Algo:
+  checkbox_filterMax
+  radiobutton_lineAlgo
+  radiobutton_spaceAlgo
+  radiobutton_forSE
+  radiobutton_forBSE
+  checkbox_2D
+  checkbox_darkHole
+  edit_mSize
+  edit_smoothing
+  edit_differential
+  edit_BLStartPt
+  edit_BLArea
+  edit_tPercent
+  edit_smaxPercent
+  edit_sminPercent
+Layer:
+  radiobutton_topLayer
+  radiobutton_bottomLayer
+  
+pushbutton_addMeas
+pushbutton_reset
+  
+  
+  
