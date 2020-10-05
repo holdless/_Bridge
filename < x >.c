@@ -3,8 +3,6 @@ _Bridge:
 ==========
   1. pi/air/win folder arrangement/github
   2. evernote tag
-  //3. 大魚日和森林步道 咖啡
-  4. kyoto trip
   
 ==========
 TANGO:
@@ -157,24 +155,6 @@ Marx Club:
 ==========
 Linguistic Center:
 ==========
-  Engish: 
-    1) CNN/BBC
-  Spanish: 
-    1) be-V 
-    2) dialog
-    3) family
-  French: 
-    1) coffee/food/in restaurant
-    2) family
-    3) be-V
-  Japanese: 
-    1) review 
-    2) 中山教室
   
-==========
-Alaska Club:
-==========
-  1. Alaska trip
-  2. Pacific crest trail
   3. Hawaii surf
   4. 台東 surf
